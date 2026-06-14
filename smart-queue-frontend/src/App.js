@@ -10,9 +10,9 @@
  *   CALL NEXT    → POST /api/admin/call-next
  *   ANALYTICS    → GET  /api/admin/analytics
  *   SOCKET       → queueUpdated | tokenCalled | newTokenAdded
- *                  waitTimeUpdated | yourTurn
+ *   SOCKET       → waitTimeUpdated | yourTurn
  *
- * ► Change API_BASE + SOCKET_URL below to match your server.
+ * ► Change API_BASE + SOCKET_URL in .env file
  * ============================================================
  */
 
@@ -23,10 +23,18 @@ import {
 } from "recharts";
 
 // ─────────────────────────────────────────────
-// ► CONFIGURE YOUR BACKEND URL HERE
+// ► CONFIGURE YOUR BACKEND URL IN .env FILE
 // ─────────────────────────────────────────────
-const API_BASE   = "http://localhost:5000/api";
-const SOCKET_URL = "http://localhost:5000";
+// Example .env file:
+// REACT_APP_API_BASE=http://localhost:5000/api
+// REACT_APP_SOCKET_URL=http://localhost:5000
+
+const API_BASE   = process.env.REACT_APP_API_BASE   || "http://localhost:5000/api";
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || "http://localhost:5000";
+
+console.log("🔧 Frontend Configuration:");
+console.log("  API_BASE:  ", API_BASE);
+console.log("  SOCKET_URL:", SOCKET_URL);
 
 // ─────────────────────────────────────────────
 // CONSTANTS
@@ -294,7 +302,7 @@ function LiveQueueStatus({ queue, serving, activeCounters, connected }) {
           : queue.slice(0, 8).map((c, i) => (
             <div key={c._id} style={{ display:"flex", alignItems:"center", gap:12, padding:"11px 20px", borderBottom:"1px solid #F1F5F9", background: i === 0 ? "#F0F9FF" : "white" }}>
               <span style={{ fontFamily:"'DM Mono',monospace", fontSize:12, color:"#94A3B8", width:22 }}>#{i+1}</span>
-              <div style={{ width:34, height:34, borderRadius:10, background:(CAT_COLORS[c.category]||"#3B82F6")+"20", color:CAT_COLORS[c.category]||"#3B82F6", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:700 }}>
+              <div style={{ width:34, height:34, borderRadius:10, background:(CAT_COLORS[c.category]||"#3B82F6")+"20", color:CAT_COLORS[c.category]||"#3B82F6", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:600 }}>
                 {initials(c.customerName)}
               </div>
               <div style={{ flex:1 }}>
@@ -459,7 +467,7 @@ function AuthGate({ onAuth }) {
         <div style={{ display:"flex", background:"#F1F5F9", borderRadius:10, padding:4, marginBottom:24 }}>
           {["login","register"].map(m => (
             <button key={m} onClick={() => { setMode(m); setErr(""); }}
-              style={{ flex:1, border:"none", borderRadius:8, padding:"8px", fontSize:14, fontWeight:500, cursor:"pointer", background: mode===m ? "white" : "transparent", color: mode===m ? "#0F172A" : "#94A3B8", boxShadow: mode===m ? "0 1px 4px rgba(0,0,0,.08)" : "none", transition:"all .15s", fontFamily:"inherit" }}>
+              style={{ flex:1, border:"none", borderRadius:8, padding:"8px", fontSize:14, fontWeight:500, cursor:"pointer", background: mode===m ? "white" : "transparent", color: mode===m ? "#0F172A" : "#94A3B8" }}>
               {m === "login" ? "Sign In" : "Register"}
             </button>
           ))}
@@ -482,14 +490,14 @@ function AuthGate({ onAuth }) {
             </div>
           )}
           <button onClick={submit} disabled={loading}
-            style={{ background: loading ? "#E2E8F0" : "#0F172A", color: loading ? "#94A3B8" : "white", border:"none", borderRadius:10, padding:"13px", fontSize:14, fontWeight:600, cursor: loading ? "not-allowed" : "pointer", fontFamily:"inherit" }}>
+            style={{ background: loading ? "#E2E8F0" : "#0F172A", color: loading ? "#94A3B8" : "white", border:"none", borderRadius:10, padding:"13px", fontSize:14, fontWeight:600, cursor: loading ? "wait" : "pointer", opacity: loading ? 0.6 : 1 }}>
             {loading ? "Connecting to backend…" : mode === "login" ? "Sign In →" : "Create Account →"}
           </button>
         </div>
 
         <div style={{ marginTop:20, padding:"14px", background:"#F8FAFC", borderRadius:10, fontSize:12, color:"#64748B" }}>
           <b>Backend must be running</b> at <code style={{ fontSize:11 }}>{API_BASE}</code><br />
-          Run: <code style={{ fontSize:11 }}>cd smart-queue-backend && npm run dev</code>
+          Configure in <code style={{ fontSize:11 }}>.env</code> file or update frontend config
         </div>
       </div>
     </div>
@@ -806,9 +814,9 @@ export default function SmartQueueSystem() {
             <div style={{ fontWeight:600, marginBottom:14 }}>Add New Customer → POST /api/token/book</div>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr auto", gap:12, alignItems:"end" }}>
               {[
-                { lbl:"FULL NAME", el:<input autoFocus style={{ border:"1.5px solid #E2E8F0", borderRadius:10, padding:"10px 14px", fontSize:14, width:"100%", outline:"none" }} placeholder="e.g. Jane Smith" value={addForm.name} onChange={e => setAddForm(f => ({...f, name:e.target.value}))} onKeyDown={e => e.key==="Enter" && addCustomer()}/> },
-                { lbl:"CATEGORY", el:<select style={{ border:"1.5px solid #E2E8F0", borderRadius:10, padding:"10px 14px", fontSize:14, width:"100%", outline:"none", background:"white" }} value={addForm.category} onChange={e => setAddForm(f => ({...f, category:e.target.value}))}>{CATEGORIES.map(c => <option key={c}>{c}</option>)}</select> },
-                { lbl:"PRIORITY",  el:<select style={{ border:"1.5px solid #E2E8F0", borderRadius:10, padding:"10px 14px", fontSize:14, width:"100%", outline:"none", background:"white" }} value={addForm.priority} onChange={e => setAddForm(f => ({...f, priority:e.target.value}))}><option value="normal">Normal</option><option value="vip">VIP</option><option value="emergency">Emergency</option></select> },
+                { lbl:"FULL NAME", el:<input autoFocus style={{ border:"1.5px solid #E2E8F0", borderRadius:10, padding:"10px 14px", fontSize:14, width:"100%", outline:"none" }} placeholder="e.g. John Doe" value={addForm.name} onChange={e => setAddForm(f => ({ ...f, name: e.target.value }))} onKeyDown={e => e.key==="Enter" && addCustomer()} /> },
+                { lbl:"CATEGORY", el:<select style={{ border:"1.5px solid #E2E8F0", borderRadius:10, padding:"10px 14px", fontSize:14, width:"100%", outline:"none", background:"white" }} value={addForm.category} onChange={e => setAddForm(f => ({ ...f, category: e.target.value }))}>{CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}</select> },
+                { lbl:"PRIORITY",  el:<select style={{ border:"1.5px solid #E2E8F0", borderRadius:10, padding:"10px 14px", fontSize:14, width:"100%", outline:"none", background:"white" }} value={addForm.priority} onChange={e => setAddForm(f => ({ ...f, priority: e.target.value }))}><option value="normal">Normal</option><option value="vip">VIP</option><option value="emergency">Emergency</option></select> },
               ].map(({ lbl, el }) => (
                 <div key={lbl}><div style={{ fontSize:11, fontWeight:600, color:"#94A3B8", marginBottom:5 }}>{lbl}</div>{el}</div>
               ))}
@@ -846,9 +854,9 @@ export default function SmartQueueSystem() {
               {waitingTokens.length > 0 && (
                 <div style={{ marginTop:12, display:"flex", flexDirection:"column", gap:8 }}>
                   {waitingTokens.map((c, i) => (
-                    <div key={c._id} style={{ background:"white", border:"1px solid #E2E8F0", borderRadius:12, padding:"12px 16px", display:"flex", alignItems:"center", gap:12, animation:"fadeIn .3s" }}>
+                    <div key={c._id} style={{ background:"white", border:"1px solid #E2E8F0", borderRadius:12, padding:"12px 16px", display:"flex", alignItems:"center", gap:12, animation:"fadeIn .3s ease" }}>
                       <span style={{ fontFamily:"'DM Mono',monospace", fontSize:12, color:"#94A3B8", width:22 }}>#{i+1}</span>
-                      <div style={{ width:36, height:36, borderRadius:10, background:(CAT_COLORS[c.category]||"#3B82F6")+"20", color:CAT_COLORS[c.category]||"#3B82F6", display:"flex", alignItems:"center", justifyContent:"center", fontSize:13, fontWeight:700 }}>
+                      <div style={{ width:36, height:36, borderRadius:10, background:(CAT_COLORS[c.category]||"#3B82F6")+"20", color:CAT_COLORS[c.category]||"#3B82F6", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:600 }}>
                         {initials(c.customerName)}
                       </div>
                       <div style={{ flex:1 }}>
@@ -878,7 +886,7 @@ export default function SmartQueueSystem() {
               {servingToken ? (
                 <div style={{ background:"linear-gradient(135deg,#0F172A,#1E293B)", borderRadius:16, padding:"22px" }}>
                   <div style={{ fontSize:11, color:"#64748B", letterSpacing:1.5, marginBottom:14, fontWeight:600 }}>NOW SERVING</div>
-                  <div style={{ width:48, height:48, borderRadius:14, background:"rgba(255,255,255,.1)", color:"white", display:"flex", alignItems:"center", justifyContent:"center", fontSize:16, fontWeight:700, marginBottom:12 }}>
+                  <div style={{ width:48, height:48, borderRadius:14, background:"rgba(255,255,255,.1)", color:"white", display:"flex", alignItems:"center", justifyContent:"center", fontSize:16, fontWeight:600 }}>
                     {initials(servingToken.customerName)}
                   </div>
                   <div style={{ fontWeight:700, fontSize:20, color:"white", marginBottom:4 }}>{servingToken.customerName}</div>
@@ -914,7 +922,7 @@ export default function SmartQueueSystem() {
                       <div style={{ width:8, height:8, borderRadius:"50%", background: c.status==="active" ? "#10B981" : "#94A3B8", flexShrink:0 }}/>
                       <span style={{ flex:1, fontSize:13, fontWeight:500 }}>{c.counterName}</span>
                       <span style={{ fontSize:11, color:"#94A3B8" }}>{c.averageServiceTime}m avg</span>
-                      <span style={{ fontSize:11, fontWeight:600, background: c.status==="active" ? "#F0FDF4" : "#F1F5F9", color: c.status==="active" ? "#15803D" : "#64748B", borderRadius:6, padding:"2px 7px" }}>
+                      <span style={{ fontSize:11, fontWeight:600, background: c.status==="active" ? "#F0FDF4" : "#F1F5F9", color: c.status==="active" ? "#15803D" : "#64748B", borderRadius:6, padding:"2px 6px" }}>
                         {c.status}
                       </span>
                     </div>
