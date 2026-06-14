@@ -1,0 +1,411 @@
+2026-04-23 01:37:50 [info]: ✅ Socket.io initialized
+2026-04-23 01:37:50 [info]: ✅ MongoDB connected: localhost
+2026-04-23 01:37:50 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-23 01:41:03 [info]: ✅ Socket.io initialized
+2026-04-23 01:45:27 [info]: ✅ Socket.io initialized
+2026-04-23 01:45:27 [info]: ✅ MongoDB connected: localhost
+2026-04-23 01:45:27 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-23 01:46:11 [http]: ::1 - - [22/Apr/2026:20:46:11 +0000] "GET /favicon.ico HTTP/1.1" 404 63 "http://192.168.56.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-23 01:46:37 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:46:41 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:47:20 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:47:41 [info]: ✅ Socket.io initialized
+2026-04-23 01:47:41 [info]: ✅ MongoDB connected: localhost
+2026-04-23 01:47:41 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-23 01:48:41 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:49:08 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:49:12 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:50:41 [info]: ✅ Socket.io initialized
+2026-04-23 01:50:41 [info]: ✅ MongoDB connected: localhost
+2026-04-23 01:50:41 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-23 01:50:44 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:50:45 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:50:45 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:50:45 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:51:34 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:51:38 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:51:40 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:51:41 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:51:44 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:51:44 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:51:54 [info]: ✅ Socket.io initialized
+2026-04-23 01:51:54 [info]: ✅ MongoDB connected: localhost
+2026-04-23 01:52:45 [info]: ✅ Socket.io initialized
+2026-04-23 01:52:45 [info]: ✅ MongoDB connected: localhost
+2026-04-23 01:52:45 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-23 01:53:15 [error]: Error: CORS: Origin http://192.168.56.1:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:53:56 [http]: ::1 - - [22/Apr/2026:20:53:56 +0000] "GET /favicon.ico HTTP/1.1" 404 63 "http://localhost:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-23 01:54:19 [error]: Error: CORS: Origin http://localhost:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 01:56:57 [info]: ✅ Socket.io initialized
+2026-04-23 01:56:57 [info]: ✅ Socket.io initialized
+2026-04-23 01:56:57 [info]: ✅ MongoDB connected: localhost
+2026-04-23 01:56:57 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:04:01 [info]: ✅ Socket.io initialized
+2026-04-23 02:04:01 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:04:01 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-23 02:04:31 [info]: New user registered: test1776891870952@example.com (user)
+2026-04-23 02:04:31 [http]: ::1 - - [22/Apr/2026:21:04:31 +0000] "POST /api/auth/register HTTP/1.1" 201 497 "-" "-"
+2026-04-23 02:04:32 [info]: User logged in: test1776891870952@example.com
+2026-04-23 02:04:32 [http]: ::1 - - [22/Apr/2026:21:04:32 +0000] "POST /api/auth/login HTTP/1.1" 200 524 "-" "-"
+2026-04-23 02:04:32 [info]: User logged in: test1776891870952@example.com
+2026-04-23 02:04:32 [http]: ::1 - - [22/Apr/2026:21:04:32 +0000] "POST /api/auth/login HTTP/1.1" 200 524 "-" "-"
+2026-04-23 02:07:28 [http]: ::1 - - [22/Apr/2026:21:07:28 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "-" "-"
+2026-04-23 02:08:21 [info]: ✅ Socket.io initialized
+2026-04-23 02:08:21 [info]: ✅ Socket.io initialized
+2026-04-23 02:08:21 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:08:21 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:08:21 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-23 02:08:21 [info]: ✅ Socket.io initialized
+2026-04-23 02:08:21 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:13:39 [info]: ✅ Socket.io initialized
+2026-04-23 02:13:39 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:25:44 [http]: ::1 - - [22/Apr/2026:21:25:44 +0000] "GET /favicon.ico HTTP/1.1" 404 63 "http://192.168.56.1:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-23 02:26:17 [error]: Error: CORS: Origin http://192.168.56.1:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-23 02:27:10 [info]: ✅ Socket.io initialized
+2026-04-23 02:27:10 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:42:53 [info]: ✅ Socket.io initialized
+2026-04-23 02:42:53 [info]: ✅ Socket.io initialized
+2026-04-23 02:42:53 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:42:53 [info]: ✅ MongoDB connected: localhost
+2026-04-23 02:42:53 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-27 06:39:03 [info]: ✅ Socket.io initialized
+2026-04-27 06:39:04 [info]: ✅ MongoDB connected: localhost
+2026-04-27 06:39:04 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-27 06:41:22 [http]: ::1 - - [27/Apr/2026:01:41:22 +0000] "GET / HTTP/1.1" 404 52 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-27 06:41:22 [http]: ::1 - - [27/Apr/2026:01:41:22 +0000] "GET /favicon.ico HTTP/1.1" 404 63 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-27 06:44:05 [info]: ✅ Socket.io initialized
+2026-04-27 06:44:05 [info]: ✅ MongoDB connected: 127.0.0.1
+2026-04-27 06:44:05 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-04-27 07:28:48 [error]: Error: CORS: Origin http://[::1]:3000 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\server.js:82:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queue managment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-04-27 07:30:01 [info]: New user registered: test2@example.com (user)
+2026-04-27 07:30:11 [http]: ::1 - - [27/Apr/2026:02:30:11 +0000] "POST /api/auth/register HTTP/1.1" 201 487 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-27 07:30:25 [http]: ::1 - - [27/Apr/2026:02:30:25 +0000] "GET /api/queue/list HTTP/1.1" 200 1287 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-27 07:30:26 [http]: ::1 - - [27/Apr/2026:02:30:26 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 200 1890 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+2026-04-27 07:30:27 [debug]: Socket connected: Rx8WcfOUI9_tzXAIAAAB (user: 69eeca102d037e4ced834a8e)
+2026-04-27 07:30:27 [debug]: Socket Rx8WcfOUI9_tzXAIAAAB joined queue room: 69c20d10451b499bca2e692b
+2026-04-27 07:46:32 [debug]: Socket disconnected: Rx8WcfOUI9_tzXAIAAAB (transport close)
+2026-06-14 15:45:12 [info]: ✅ Socket.io initialized
+2026-06-14 15:45:12 [info]: ✅ MongoDB connected: 127.0.0.1
+2026-06-14 15:45:12 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-14 15:47:00 [http]: ::1 - - [14/Jun/2026:10:47:00 +0000] "GET /health HTTP/1.1" 200 132 "-" "curl/8.19.0"
+2026-06-14 15:50:36 [http]: ::1 - - [14/Jun/2026:10:50:36 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:50:39 [http]: ::1 - - [14/Jun/2026:10:50:39 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:50:40 [http]: ::1 - - [14/Jun/2026:10:50:40 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:50:40 [http]: ::1 - - [14/Jun/2026:10:50:40 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:50:57 [warn]: [POST /api/auth/register] 409 — Email already exists.
+2026-06-14 15:50:57 [http]: ::1 - - [14/Jun/2026:10:50:57 +0000] "POST /api/auth/register HTTP/1.1" 409 51 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:51:05 [info]: New user registered: aurangzaibsial5150987@gmail.com (admin)
+2026-06-14 15:51:05 [http]: ::1 - - [14/Jun/2026:10:51:05 +0000] "POST /api/auth/register HTTP/1.1" 201 501 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:51:05 [http]: ::1 - - [14/Jun/2026:10:51:05 +0000] "GET /api/queue/list HTTP/1.1" 200 1287 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:51:05 [http]: ::1 - - [14/Jun/2026:10:51:05 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 200 1890 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:51:05 [http]: ::1 - - [14/Jun/2026:10:51:05 +0000] "GET /api/admin/analytics HTTP/1.1" 200 1873 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:51:05 [debug]: Socket connected: o-7Bocz9P4zeZHw6AAAB (user: 6a2e879829480cfe0d020a7d)
+2026-06-14 15:51:05 [debug]: Socket o-7Bocz9P4zeZHw6AAAB joined queue room: 69c20d10451b499bca2e692b
+2026-06-14 15:54:39 [info]: Token booked: G-010 for aurangzaibsial5150987@gmail.com in queue General Enquiry Queue
+2026-06-14 15:54:39 [http]: ::1 - - [14/Jun/2026:10:54:39 +0000] "POST /api/token/book HTTP/1.1" 201 848 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:54:40 [http]: ::1 - - [14/Jun/2026:10:54:40 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 200 2477 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:56:20 [http]: ::1 - - [14/Jun/2026:10:56:20 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:56:31 [http]: ::1 - - [14/Jun/2026:10:56:31 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:56:36 [http]: ::1 - - [14/Jun/2026:10:56:36 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 15:59:21 [http]: ::1 - - [14/Jun/2026:10:59:21 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:01:25 [info]: ✅ Socket.io initialized
+2026-06-14 16:01:25 [info]: ✅ MongoDB connected: 127.0.0.1
+2026-06-14 16:01:34 [debug]: Socket disconnected: o-7Bocz9P4zeZHw6AAAB (transport close)
+2026-06-14 16:01:54 [http]: ::1 - - [14/Jun/2026:11:01:54 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:02:26 [http]: ::1 - - [14/Jun/2026:11:02:26 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:02:26 [http]: ::1 - - [14/Jun/2026:11:02:26 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:02:27 [http]: ::1 - - [14/Jun/2026:11:02:27 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:02:27 [http]: ::1 - - [14/Jun/2026:11:02:27 +0000] "POST /api/auth/login HTTP/1.1" 429 78 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:02:34 [http]: ::1 - - [14/Jun/2026:11:02:34 +0000] "POST /api/auth/register HTTP/1.1" 429 78 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:02:41 [http]: ::1 - - [14/Jun/2026:11:02:41 +0000] "POST /api/auth/register HTTP/1.1" 429 78 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:02:42 [http]: ::1 - - [14/Jun/2026:11:02:42 +0000] "POST /api/auth/register HTTP/1.1" 429 78 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:10:16 [info]: New user registered: aurangzaibsial51500@gmail.com (admin)
+2026-06-14 16:10:16 [http]: ::1 - - [14/Jun/2026:11:10:16 +0000] "POST /api/auth/register HTTP/1.1" 201 494 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:10:16 [http]: ::1 - - [14/Jun/2026:11:10:16 +0000] "GET /api/queue/list HTTP/1.1" 200 1287 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:10:16 [debug]: Socket connected: ZyGYCpeSLSrXm777AAAD (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-14 16:10:16 [debug]: Socket ZyGYCpeSLSrXm777AAAD joined queue room: 69c20d10451b499bca2e692b
+2026-06-14 16:10:16 [debug]: Socket ZyGYCpeSLSrXm777AAAD joined queue room: 69c20d10451b499bca2e692b
+2026-06-14 16:10:16 [http]: ::1 - - [14/Jun/2026:11:10:16 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:10:16 [http]: ::1 - - [14/Jun/2026:11:10:16 +0000] "GET /api/admin/analytics HTTP/1.1" 200 2007 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:13:29 [info]: Token booked: G-011 for aurangzaibsial51500@gmail.com in queue General Enquiry Queue
+2026-06-14 16:13:29 [http]: ::1 - - [14/Jun/2026:11:13:29 +0000] "POST /api/token/book HTTP/1.1" 201 820 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:13:29 [http]: ::1 - - [14/Jun/2026:11:13:29 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 200 3038 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:13:53 [http]: ::1 - - [14/Jun/2026:11:13:53 +0000] "GET /api/admin/analytics HTTP/1.1" 200 2037 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-14 16:14:00 [debug]: Socket disconnected: ZyGYCpeSLSrXm777AAAD (transport close)
