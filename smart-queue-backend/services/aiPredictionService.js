@@ -58,6 +58,8 @@ const PRIORITY_FACTORS = {
  */
 const predictWaitTime = async ({ queueId, tokenId, category, priority, activeCounters }) => {
   try {
+    const queue = await Queue.findById(queueId).select('businessId');
+    const businessId = queue ? queue.businessId : null;
     // Count how many tokens are ahead (waiting + serving takes 1 slot)
     const peopleAhead = await Token.countDocuments({
       queueId,
@@ -73,7 +75,7 @@ const predictWaitTime = async ({ queueId, tokenId, category, priority, activeCou
     let avgServiceTime = DEFAULT_SERVICE_TIMES[category] || 5;
 
     // Fetch actual learned service time from active counters
-    const activeCounterDocs = await ServiceCounter.find({ status: 'active' }).limit(10);
+    const activeCounterDocs = await ServiceCounter.find({ businessId, status: 'active' }).limit(10);
     if (activeCounterDocs.length > 0) {
       const totalAvg = activeCounterDocs.reduce((sum, c) => sum + c.averageServiceTime, 0);
       avgServiceTime = totalAvg / activeCounterDocs.length;
@@ -89,7 +91,7 @@ const predictWaitTime = async ({ queueId, tokenId, category, priority, activeCou
     // Count actual active counters if not provided
     let counters = activeCounters;
     if (!counters) {
-      counters = await ServiceCounter.countDocuments({ status: 'active' });
+      counters = await ServiceCounter.countDocuments({ businessId, status: 'active' });
       counters = Math.max(counters, 1); // Minimum 1
     }
 
@@ -113,18 +115,21 @@ const predictWaitTime = async ({ queueId, tokenId, category, priority, activeCou
  */
 const recalculateQueueWaitTimes = async (queueId) => {
   try {
+    const queue = await Queue.findById(queueId).select('businessId');
+    const businessId = queue ? queue.businessId : null;
+
     // Fetch all waiting tokens sorted by priority then join time
     const waitingTokens = await Token.find({ queueId, status: 'waiting' })
       .sort({ priority: -1, createdAt: 1 }); // VIP first, then FIFO
 
-    const activeCounters = await ServiceCounter.countDocuments({ status: 'active' });
+    const activeCounters = await ServiceCounter.countDocuments({ businessId, status: 'active' });
     const counters = Math.max(activeCounters, 1);
 
     const currentHour = new Date().getHours();
     const peakFactor = getPeakFactor(currentHour);
 
     // Get avg service time from counters
-    const counterDocs = await ServiceCounter.find({ status: 'active' }).limit(10);
+    const counterDocs = await ServiceCounter.find({ businessId, status: 'active' }).limit(10);
     let baseAvgTime = 5;
     if (counterDocs.length > 0) {
       baseAvgTime = counterDocs.reduce((s, c) => s + c.averageServiceTime, 0) / counterDocs.length;
@@ -203,7 +208,11 @@ const learnFromCompletedToken = async (token) => {
  */
 const optimizeCounterAssignment = async (queueId) => {
   try {
+    const queue = await Queue.findById(queueId).select('businessId');
+    const businessId = queue ? queue.businessId : null;
+
     const activeCounters = await ServiceCounter.find({
+      businessId,
       status: 'active',
       currentToken: null,
     }).sort({ totalServed: 1 }); // Prefer less-busy counters

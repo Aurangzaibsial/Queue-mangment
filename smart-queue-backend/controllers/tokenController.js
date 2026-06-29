@@ -89,6 +89,7 @@ exports.bookToken = async (req, res, next) => {
 
     // Create token
     const token = await Token.create({
+      businessId: queue.businessId,
       tokenNumber,
       userId: req.user._id,
       queueId,

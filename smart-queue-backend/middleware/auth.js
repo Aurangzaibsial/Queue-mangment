@@ -88,7 +88,8 @@ const authorize = (...roles) => {
 };
 
 // Convenience shortcuts
-const adminOnly = authorize('admin', 'superadmin');
+const ownerOnly = authorize('owner', 'superadmin');
+const adminOnly = authorize('admin', 'owner', 'superadmin');
 const superAdminOnly = authorize('superadmin');
 
 /**

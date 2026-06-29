@@ -75,9 +75,16 @@ const initSocket = (io) => {
       socket.join(`user:${userId}`);
     }
 
-    // Admins join admin room
-    if (userRole === 'admin' || userRole === 'superadmin') {
+    // Admins and owners join admin room
+    if (userRole === 'admin' || userRole === 'owner' || userRole === 'superadmin') {
       socket.join('admin');
+      if (socket.user?.businessId) {
+        socket.join(`business:${socket.user.businessId}:admin`);
+      }
+    }
+    
+    if (socket.user?.businessId) {
+      socket.join(`business:${socket.user.businessId}`);
     }
 
     // ── joinQueue — Subscribe to a specific queue ──
@@ -89,12 +96,15 @@ const initSocket = (io) => {
 
       // Send current queue state on join
       try {
+        const queue = await Queue.findById(queueId).select('businessId');
+        const businessId = queue ? queue.businessId : null;
+
         const waitingTokens = await Token.find({ queueId, status: 'waiting' })
           .populate('userId', 'name')
           .sort({ position: 1 })
           .limit(20);
 
-        const activeCounters = await ServiceCounter.find({ status: 'active' })
+        const activeCounters = await ServiceCounter.find({ businessId, status: 'active' })
           .populate('currentToken', 'tokenNumber customerName');
 
         socket.emit('queueSnapshot', {
@@ -143,7 +153,7 @@ const initSocket = (io) => {
 
     // ── adminAction — Admin triggers manual queue action ──
     socket.on('adminAction', async ({ action, queueId }) => {
-      if (!userId || (userRole !== 'admin' && userRole !== 'superadmin')) {
+      if (!userId || (userRole !== 'admin' && userRole !== 'owner' && userRole !== 'superadmin')) {
         return socket.emit('error', { message: 'Admin access required' });
       }
 

@@ -20,23 +20,22 @@ const logger = require('../utils/logger');
  */
 exports.createQueue = async (req, res, next) => {
   try {
-    const { serviceName, description, category, maxCapacity, estimatedServiceTime, priorityLevel } = req.body;
+    const { serviceName, category, estimatedWaitTimePerPerson, description } = req.body;
 
     const queue = await Queue.create({
+      businessId: req.businessId,
       serviceName,
-      description,
       category,
-      maxCapacity,
-      estimatedServiceTime,
-      priorityLevel,
-      managedBy: req.user._id,
+      estimatedWaitTimePerPerson: estimatedWaitTimePerPerson || 5, // Default 5 mins
+      description,
+      managedBy: req.user.id,
     });
 
     logger.info(`Queue created: ${serviceName} by ${req.user.email}`);
 
     // Emit socket event (attached to req by socket middleware)
     if (req.io) {
-      req.io.emit('queueCreated', { queue });
+      req.io.to(`business:${req.businessId}`).emit('queueCreated', { queue });
     }
 
     return sendSuccess(res, 201, 'Queue created successfully', queue);
@@ -56,7 +55,7 @@ exports.listQueues = async (req, res, next) => {
     const skip = (page - 1) * limit;
 
     // Build filter
-    const filter = { isActive: true };
+    const filter = { businessId: req.businessId, isActive: true };
     if (status) filter.status = status;
     if (category) filter.category = category;
 

@@ -35,10 +35,16 @@ const UserSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: {
-        values: ['user', 'admin', 'superadmin'],
-        message: 'Role must be user, admin, or superadmin',
+        values: ['user', 'admin', 'owner', 'superadmin'],
+        message: 'Role must be user, admin, owner, or superadmin',
       },
       default: 'user',
+    },
+    // The business this user belongs to (null for regular customers or superadmin)
+    businessId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Business',
+      default: null,
     },
     isActive: {
       type: Boolean,

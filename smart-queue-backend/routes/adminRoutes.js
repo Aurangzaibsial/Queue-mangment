@@ -9,10 +9,11 @@ const {
   callNext, updateCounter, createCounter, getAnalytics, optimizeQueue, listUsers,
 } = require('../controllers/adminController');
 const { protect, adminOnly, superAdminOnly } = require('../middleware/auth');
+const { requireBusiness } = require('../middleware/tenantMiddleware');
 const validate = require('../middleware/validate');
 
-// All admin routes require authentication + admin role
-router.use(protect, adminOnly);
+// All admin routes require authentication, admin/owner role, and an active business
+router.use(protect, adminOnly, requireBusiness);
 
 // POST /api/admin/call-next
 router.post(

@@ -26,6 +26,7 @@ const { errorHandler, notFound } = require('./middleware/errorHandler');
 
 // ── Route imports ────────────────────────────────
 const authRoutes = require('./routes/authRoutes');
+const businessRoutes = require('./routes/businessRoutes');
 const queueRoutes = require('./routes/queueRoutes');
 const tokenRoutes = require('./routes/tokenRoutes');
 const adminRoutes = require('./routes/adminRoutes');
@@ -44,9 +45,26 @@ const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000')
   .split(',')
   .map((o) => o.trim());
 
+// Helper function to dynamically check if the request origin is allowed
+const checkOrigin = (origin, callback) => {
+  // Allow requests with no origin (like mobile apps, curl, Postman, or server-to-server)
+  if (!origin) {
+    return callback(null, true);
+  }
+  
+  // Dynamically allow any local origin on any port (localhost, 127.0.0.1, or [::1])
+  const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/.test(origin);
+  
+  if (isLocal || allowedOrigins.includes(origin)) {
+    callback(null, true);
+  } else {
+    callback(new Error(`CORS: Origin ${origin} not allowed`));
+  }
+};
+
 const io = new Server(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: checkOrigin,
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -74,14 +92,7 @@ app.use(helmet());
 // CORS
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (mobile, Postman, etc.)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error(`CORS: Origin ${origin} not allowed`));
-      }
-    },
+    origin: checkOrigin,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -138,6 +149,7 @@ app.get('/health', (_req, res) => {
 
 // API routes
 app.use('/api/auth', authRoutes);
+app.use('/api/business', businessRoutes);
 app.use('/api/queue', queueRoutes);
 app.use('/api/token', tokenRoutes);
 app.use('/api/admin', adminRoutes);
@@ -157,16 +169,35 @@ const startServer = async () => {
   // Connect to MongoDB first
   await connectDB();
 
-  server.listen(PORT, () => {
+  let currentPort = parseInt(PORT, 10);
+
+  const tryListen = (port) => {
+    server.listen(port);
+  };
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      logger.warn(`Port ${currentPort} is already in use. Retrying on port ${currentPort + 1}...`);
+      currentPort++;
+      tryListen(currentPort);
+    } else {
+      logger.error(`Server error: ${err.message}`);
+      process.exit(1);
+    }
+  });
+
+  server.on('listening', () => {
     logger.info(`
 ╔══════════════════════════════════════════╗
 ║   Smart Queue API — Server Started       ║
-║   Port    : ${PORT}                           ║
+║   Port    : ${currentPort}                           ║
 ║   Mode    : ${process.env.NODE_ENV || 'development'}                  ║
 ║   WS      : Socket.io enabled            ║
 ╚══════════════════════════════════════════╝
     `);
   });
+
+  tryListen(currentPort);
 };
 
 startServer().catch((err) => {

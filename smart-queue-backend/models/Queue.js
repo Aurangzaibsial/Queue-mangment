@@ -11,6 +11,12 @@ const mongoose = require('mongoose');
 
 const QueueSchema = new mongoose.Schema(
   {
+    businessId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Business',
+      required: true,
+      index: true,
+    },
     serviceName: {
       type: String,
       required: [true, 'Service name is required'],
@@ -90,8 +96,8 @@ QueueSchema.virtual('currentLength', {
 });
 
 // ── Indexes ──────────────────────────────────────
-QueueSchema.index({ status: 1 });
-QueueSchema.index({ category: 1 });
+QueueSchema.index({ businessId: 1, status: 1 });
+QueueSchema.index({ businessId: 1, category: 1 });
 QueueSchema.index({ managedBy: 1 });
 
 module.exports = mongoose.model('Queue', QueueSchema);

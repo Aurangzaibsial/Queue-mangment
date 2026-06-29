@@ -31,8 +31,8 @@ exports.callNext = async (req, res, next) => {
   try {
     const { queueId, counterId } = req.body;
 
-    const counter = await ServiceCounter.findById(counterId);
-    if (!counter) return sendError(res, 404, 'Counter not found.');
+    const counter = await ServiceCounter.findOne({ _id: counterId, businessId: req.businessId });
+    if (!counter) return sendError(res, 404, 'Counter not found or belongs to another business.');
     if (counter.status === 'inactive') return sendError(res, 400, 'Counter is inactive.');
 
     // ── Complete currently serving token ─────────
@@ -143,12 +143,13 @@ exports.updateCounter = async (req, res, next) => {
       updates.currentToken = null;
     }
 
-    const counter = await ServiceCounter.findByIdAndUpdate(counterId, updates, {
-      new: true,
-      runValidators: true,
-    }).populate('currentToken').populate('operatedBy', 'name');
+    const counter = await ServiceCounter.findOneAndUpdate(
+      { _id: counterId, businessId: req.businessId },
+      updates,
+      { new: true, runValidators: true }
+    ).populate('currentToken').populate('operatedBy', 'name');
 
-    if (!counter) return sendError(res, 404, 'Counter not found.');
+    if (!counter) return sendError(res, 404, 'Counter not found or belongs to another business.');
 
     if (req.io) {
       req.io.emit('counterUpdated', { counter });
@@ -169,6 +170,7 @@ exports.createCounter = async (req, res, next) => {
     const { counterName, counterNumber, assignedQueue } = req.body;
 
     const counter = await ServiceCounter.create({
+      businessId: req.businessId,
       counterName,
       counterNumber,
       assignedQueue: assignedQueue || null,
@@ -193,7 +195,7 @@ exports.getAnalytics = async (req, res, next) => {
     const { queueId, days = 7 } = req.query;
     const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
 
-    const filter = { createdAt: { $gte: since } };
+    const filter = { businessId: req.businessId, createdAt: { $gte: since } };
     if (queueId) filter.queueId = queueId;
 
     // ── Overview Aggregation ──────────────────────
@@ -227,11 +229,11 @@ exports.getAnalytics = async (req, res, next) => {
         { $sort: { count: -1 } },
       ]),
 
-      ServiceCounter.find({ status: 'active' })
+      ServiceCounter.find({ businessId: req.businessId, status: 'active' })
         .populate('currentToken', 'tokenNumber customerName')
         .select('counterName counterNumber averageServiceTime totalServed status'),
 
-      Queue.find({ isActive: true }).select('serviceName category analytics status'),
+      Queue.find({ businessId: req.businessId, isActive: true }).select('serviceName category analytics status'),
 
       // Peak hour data
       Token.aggregate([

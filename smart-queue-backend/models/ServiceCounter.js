@@ -11,6 +11,12 @@ const mongoose = require('mongoose');
 
 const ServiceCounterSchema = new mongoose.Schema(
   {
+    businessId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Business',
+      required: true,
+      index: true,
+    },
     counterName: {
       type: String,
       required: [true, 'Counter name is required'],
@@ -20,7 +26,6 @@ const ServiceCounterSchema = new mongoose.Schema(
     counterNumber: {
       type: Number,
       required: true,
-      unique: true,
     },
     status: {
       type: String,
@@ -72,8 +77,9 @@ const ServiceCounterSchema = new mongoose.Schema(
 );
 
 // ── Indexes ──────────────────────────────────────
-ServiceCounterSchema.index({ status: 1 });
-ServiceCounterSchema.index({ assignedQueue: 1 });
+ServiceCounterSchema.index({ businessId: 1, status: 1 });
+ServiceCounterSchema.index({ businessId: 1, assignedQueue: 1 });
+ServiceCounterSchema.index({ businessId: 1, counterNumber: 1 }, { unique: true });
 
 /**
  * Instance method: Update average service time using EMA

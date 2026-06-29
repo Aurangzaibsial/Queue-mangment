@@ -409,3 +409,752 @@
 2026-06-14 16:13:29 [http]: ::1 - - [14/Jun/2026:11:13:29 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 200 3038 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
 2026-06-14 16:13:53 [http]: ::1 - - [14/Jun/2026:11:13:53 +0000] "GET /api/admin/analytics HTTP/1.1" 200 2037 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
 2026-06-14 16:14:00 [debug]: Socket disconnected: ZyGYCpeSLSrXm777AAAD (transport close)
+2026-06-15 18:36:33 [info]: ✅ Socket.io initialized
+2026-06-15 18:36:33 [error]: ❌ MongoDB connection error (attempt 1): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:33 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:36:33 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:33 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-15 18:36:38 [error]: ❌ MongoDB connection error (attempt 2): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:38 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:36:38 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:43 [error]: ❌ MongoDB connection error (attempt 3): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:43 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:36:43 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:48 [error]: ❌ MongoDB connection error (attempt 4): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:48 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:36:48 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:36:53 [error]: ❌ MongoDB connection error (attempt 5): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:06 [info]: ✅ Socket.io initialized
+2026-06-15 18:39:06 [error]: ❌ MongoDB connection error (attempt 1): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:06 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:39:06 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:06 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-15 18:39:11 [error]: ❌ MongoDB connection error (attempt 2): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:11 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:39:11 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:16 [error]: ❌ MongoDB connection error (attempt 3): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:16 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:39:16 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:21 [error]: ❌ MongoDB connection error (attempt 4): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:21 [info]: ⏳ Retrying in 5s...
+2026-06-15 18:39:21 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 18:39:26 [error]: ❌ MongoDB connection error (attempt 5): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 19:00:45 [info]: ✅ Socket.io initialized
+2026-06-15 19:00:45 [error]: ❌ MongoDB connection error (attempt 1): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 19:00:45 [info]: ⏳ Retrying in 5s...
+2026-06-15 19:00:45 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-06-15 19:00:45 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 16:59:56 [info]: ✅ Socket.io initialized
+2026-06-16 16:59:56 [info]: ✅ MongoDB connected: localhost
+2026-06-16 16:59:56 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:01:29 [warn]: [POST /api/auth/register] 409 — Email already exists.
+2026-06-16 17:01:29 [http]: ::1 - - [16/Jun/2026:12:01:29 +0000] "POST /api/auth/register HTTP/1.1" 409 51 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:02:07 [info]: User logged in: aurangzaibsial51500@gmail.com
+2026-06-16 17:02:07 [http]: ::1 - - [16/Jun/2026:12:02:07 +0000] "POST /api/auth/login HTTP/1.1" 200 521 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:02:07 [http]: ::1 - - [16/Jun/2026:12:02:07 +0000] "GET /api/queue/list HTTP/1.1" 200 1287 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:02:07 [http]: ::1 - - [16/Jun/2026:12:02:07 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 200 3038 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:02:07 [http]: ::1 - - [16/Jun/2026:12:02:07 +0000] "GET /api/admin/analytics HTTP/1.1" 200 2037 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:02:07 [debug]: Socket connected: CTpuiHuRr45wSyfLAAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-16 17:02:07 [debug]: Socket CTpuiHuRr45wSyfLAAAB joined queue room: 69c20d10451b499bca2e692b
+2026-06-16 17:02:23 [http]: ::1 - - [16/Jun/2026:12:02:23 +0000] "GET /api/admin/analytics HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:03:02 [http]: ::1 - - [16/Jun/2026:12:03:02 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:03:18 [http]: ::1 - - [16/Jun/2026:12:03:18 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:03:31 [http]: ::1 - - [16/Jun/2026:12:03:31 +0000] "GET /api/admin/analytics HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:05:44 [http]: ::1 - - [16/Jun/2026:12:05:44 +0000] "GET /api/admin/analytics HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:07:06 [debug]: Socket disconnected: CTpuiHuRr45wSyfLAAAB (client namespace disconnect)
+2026-06-16 17:28:33 [info]: ✅ Socket.io initialized
+2026-06-16 17:28:33 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:28:33 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:28:53 [info]: ✅ Socket.io initialized
+2026-06-16 17:28:53 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:28:53 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:04 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:04 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:04 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:06 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:06 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:06 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:08 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:08 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:08 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:10 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:10 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:10 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:12 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:12 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:12 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:14 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:14 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:14 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:39 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:39 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:39 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:29:41 [info]: ✅ Socket.io initialized
+2026-06-16 17:29:41 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:29:41 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:30:00 [info]: ✅ Socket.io initialized
+2026-06-16 17:30:00 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:30:00 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:30:02 [info]: ✅ Socket.io initialized
+2026-06-16 17:30:02 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:30:02 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:30:08 [info]: ✅ Socket.io initialized
+2026-06-16 17:30:08 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:30:08 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:30:14 [info]: ✅ Socket.io initialized
+2026-06-16 17:30:14 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:30:14 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:30:20 [info]: ✅ Socket.io initialized
+2026-06-16 17:30:20 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:30:20 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:30:25 [info]: ✅ Socket.io initialized
+2026-06-16 17:30:25 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:30:25 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:30:29 [info]: ✅ Socket.io initialized
+2026-06-16 17:30:29 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:30:29 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:35:56 [info]: ✅ Socket.io initialized
+2026-06-16 17:35:56 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:35:56 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:38:20 [info]: ✅ Socket.io initialized
+2026-06-16 17:38:20 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:40:31 [info]: User logged in: aurangzaibsial51500@gmail.com
+2026-06-16 17:40:31 [http]: ::1 - - [16/Jun/2026:12:40:31 +0000] "POST /api/auth/login HTTP/1.1" 200 539 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:40:31 [http]: ::1 - - [16/Jun/2026:12:40:31 +0000] "GET /api/queue/list HTTP/1.1" 400 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:40:31 [debug]: Socket connected: S14Y11vgAcjow74_AAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-16 17:40:38 [http]: ::1 - - [16/Jun/2026:12:40:38 +0000] "GET /api/admin/analytics HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:41:21 [http]: ::1 - - [16/Jun/2026:12:41:21 +0000] "GET /api/admin/analytics HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:41:25 [http]: ::1 - - [16/Jun/2026:12:41:25 +0000] "GET /api/admin/analytics HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:41:26 [http]: ::1 - - [16/Jun/2026:12:41:26 +0000] "GET /api/admin/analytics HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:41:48 [debug]: Socket disconnected: S14Y11vgAcjow74_AAAB (transport close)
+2026-06-16 17:46:36 [info]: ✅ Socket.io initialized
+2026-06-16 17:46:36 [info]: ✅ Socket.io initialized
+2026-06-16 17:46:37 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:46:37 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:46:37 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:47:04 [info]: ✅ Socket.io initialized
+2026-06-16 17:47:04 [info]: ✅ Socket.io initialized
+2026-06-16 17:47:04 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:47:04 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:47:04 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:47:20 [info]: ✅ Socket.io initialized
+2026-06-16 17:47:20 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:47:20 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:47:20 [info]: ✅ Socket.io initialized
+2026-06-16 17:47:20 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:47:46 [info]: ✅ Socket.io initialized
+2026-06-16 17:47:46 [info]: ✅ Socket.io initialized
+2026-06-16 17:47:46 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:47:46 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:47:46 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:48:07 [info]: ✅ Socket.io initialized
+2026-06-16 17:48:07 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:48:07 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:48:07 [info]: ✅ Socket.io initialized
+2026-06-16 17:48:07 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:48:45 [info]: ✅ Socket.io initialized
+2026-06-16 17:48:45 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:49:46 [info]: User logged in: aurangzaibsial51500@gmail.com
+2026-06-16 17:49:46 [http]: ::1 - - [16/Jun/2026:12:49:46 +0000] "POST /api/auth/login HTTP/1.1" 200 539 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:49:46 [http]: ::1 - - [16/Jun/2026:12:49:46 +0000] "GET /api/queue/list HTTP/1.1" 400 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:49:46 [debug]: Socket connected: fOUIplZeKdSH9GNsAAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-16 17:50:17 [debug]: Socket disconnected: fOUIplZeKdSH9GNsAAAB (transport close)
+2026-06-16 17:57:12 [info]: ✅ Socket.io initialized
+2026-06-16 17:57:12 [info]: ✅ Socket.io initialized
+2026-06-16 17:57:12 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:57:12 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:57:12 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:58:06 [info]: ✅ Socket.io initialized
+2026-06-16 17:58:06 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:58:06 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 17:58:07 [info]: ✅ Socket.io initialized
+2026-06-16 17:58:07 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:59:36 [http]: ::1 - - [16/Jun/2026:12:59:36 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 17:59:50 [info]: ✅ Socket.io initialized
+2026-06-16 17:59:50 [info]: ✅ MongoDB connected: localhost
+2026-06-16 17:59:59 [http]: ::1 - - [16/Jun/2026:12:59:59 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:00:36 [http]: ::1 - - [16/Jun/2026:13:00:36 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:00:43 [info]: User logged in: aurangzaibsial51500@gmail.com
+2026-06-16 18:00:43 [http]: ::1 - - [16/Jun/2026:13:00:43 +0000] "POST /api/auth/login HTTP/1.1" 200 539 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:00:44 [http]: ::1 - - [16/Jun/2026:13:00:44 +0000] "GET /api/queue/list HTTP/1.1" 200 115 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:00:44 [http]: ::1 - - [16/Jun/2026:13:00:44 +0000] "POST /api/queue/create HTTP/1.1" 422 124 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:00:44 [debug]: Socket connected: HJGb6dVsVbo2iYtnAAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-16 18:01:00 [http]: ::1 - - [16/Jun/2026:13:01:00 +0000] "GET /api/admin/analytics HTTP/1.1" 200 1420 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:01:01 [debug]: Socket disconnected: HJGb6dVsVbo2iYtnAAAB (client namespace disconnect)
+2026-06-16 18:02:04 [http]: ::1 - - [16/Jun/2026:13:02:04 +0000] "GET /api/queue/list HTTP/1.1" 200 115 "-" "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.8655"
+2026-06-16 18:02:34 [http]: ::1 - - [16/Jun/2026:13:02:34 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:03:08 [http]: ::1 - - [16/Jun/2026:13:03:08 +0000] "GET /api/queue/list HTTP/1.1" 200 115 "-" "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.8655"
+2026-06-16 18:04:15 [info]: ✅ Socket.io initialized
+2026-06-16 18:04:15 [info]: ✅ Socket.io initialized
+2026-06-16 18:04:15 [info]: ✅ MongoDB connected: localhost
+2026-06-16 18:04:15 [info]: ✅ MongoDB connected: localhost
+2026-06-16 18:04:15 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-16 18:04:51 [http]: ::1 - - [16/Jun/2026:13:04:51 +0000] "GET /api/queue/list HTTP/1.1" 200 1367 "-" "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.8655"
+2026-06-16 18:05:50 [http]: ::1 - - [16/Jun/2026:13:05:50 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:02 [info]: User logged in: aurangzaibsial51500@gmail.com
+2026-06-16 18:06:02 [http]: ::1 - - [16/Jun/2026:13:06:02 +0000] "POST /api/auth/login HTTP/1.1" 200 561 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:02 [http]: ::1 - - [16/Jun/2026:13:06:02 +0000] "GET /api/queue/list HTTP/1.1" 200 1367 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:02 [debug]: Socket connected: o1PQWasoUl8SVTqfAAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-16 18:06:02 [debug]: Socket o1PQWasoUl8SVTqfAAAB joined queue room: 69c20d10451b499bca2e692b
+2026-06-16 18:06:02 [error]: Error sending queue snapshot: Queue is not defined
+2026-06-16 18:06:02 [http]: ::1 - - [16/Jun/2026:13:06:02 +0000] "GET /api/queue/69c20d10451b499bca2e692b HTTP/1.1" 200 3238 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:02 [http]: ::1 - - [16/Jun/2026:13:06:02 +0000] "GET /api/admin/analytics HTTP/1.1" 200 2037 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:17 [http]: ::1 - - [16/Jun/2026:13:06:17 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:22 [http]: ::1 - - [16/Jun/2026:13:06:22 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:31 [http]: ::1 - - [16/Jun/2026:13:06:31 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:34 [http]: ::1 - - [16/Jun/2026:13:06:34 +0000] "POST /api/token/book HTTP/1.1" 409 85 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:40 [debug]: Socket disconnected: o1PQWasoUl8SVTqfAAAB (client namespace disconnect)
+2026-06-16 18:06:46 [http]: ::1 - - [16/Jun/2026:13:06:46 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:06:59 [http]: ::1 - - [16/Jun/2026:13:06:59 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-16 18:07:01 [http]: ::1 - - [16/Jun/2026:13:07:01 +0000] "POST /api/auth/login HTTP/1.1" 401 56 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-29 15:28:35 [info]: ✅ Socket.io initialized
+2026-06-29 15:28:35 [info]: ✅ MongoDB connected: localhost
+2026-06-29 15:28:35 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 15:33:15 [info]: ✅ Socket.io initialized
+2026-06-29 15:33:15 [info]: ✅ MongoDB connected: localhost
+2026-06-29 15:41:55 [error]: Error: CORS: Origin http://[::1]:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\server.js:83:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-06-29 15:42:06 [error]: Error: CORS: Origin http://[::1]:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\server.js:83:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-06-29 15:43:19 [info]: ✅ Socket.io initialized
+2026-06-29 15:43:19 [info]: ✅ MongoDB connected: localhost
+2026-06-29 15:45:14 [error]: Error: CORS: Origin http://[::1]:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\server.js:83:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-06-29 15:45:25 [error]: Error: CORS: Origin http://[::1]:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\server.js:83:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-06-29 15:45:27 [error]: Error: CORS: Origin http://[::1]:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\server.js:83:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-06-29 15:45:37 [error]: Error: CORS: Origin http://[::1]:3001 not allowed
+    at origin (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\server.js:83:18)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-06-29 15:57:05 [info]: ✅ Socket.io initialized
+2026-06-29 15:57:06 [info]: ✅ MongoDB connected: localhost
+2026-06-29 15:57:06 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 15:57:57 [info]: ✅ Socket.io initialized
+2026-06-29 15:57:57 [info]: ✅ MongoDB connected: localhost
+2026-06-29 15:57:57 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 15:59:56 [info]: ✅ Socket.io initialized
+2026-06-29 15:59:56 [info]: ✅ Socket.io initialized
+2026-06-29 15:59:56 [info]: ✅ MongoDB connected: localhost
+2026-06-29 15:59:56 [info]: ✅ MongoDB connected: localhost
+2026-06-29 15:59:56 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 15:59:56 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 15:59:56 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5001                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:00:49 [http]: ::1 - - [29/Jun/2026:11:00:49 +0000] "GET /health HTTP/1.1" 200 131 "-" "node"
+2026-06-29 16:00:49 [http]: ::1 - - [29/Jun/2026:11:00:49 +0000] "GET /health HTTP/1.1" 200 132 "-" "node"
+2026-06-29 16:01:53 [http]: ::1 - - [29/Jun/2026:11:01:53 +0000] "GET /health HTTP/1.1" 200 133 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:02:53 [info]: ✅ Socket.io initialized
+2026-06-29 16:02:54 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:02:54 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:02:54 [warn]: Port 5001 is already in use. Retrying on port 5002...
+2026-06-29 16:02:54 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5002                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:02:59 [http]: ::1 - - [29/Jun/2026:11:02:59 +0000] "GET /health HTTP/1.1" 200 133 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:03:12 [info]: User logged in: aurangzaibsial51500@gmail.com
+2026-06-29 16:03:12 [http]: ::1 - - [29/Jun/2026:11:03:12 +0000] "POST /api/auth/login HTTP/1.1" 200 561 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:03:13 [debug]: Socket connected: n51Dns38lmgWcxiTAAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:04:21 [http]: ::1 - - [29/Jun/2026:11:04:21 +0000] "POST /api/business/register HTTP/1.1" 404 74 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:04:49 [http]: ::1 - - [29/Jun/2026:11:04:49 +0000] "POST /api/business/register HTTP/1.1" 404 74 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:08:51 [info]: ✅ Socket.io initialized
+2026-06-29 16:08:51 [info]: ✅ Socket.io initialized
+2026-06-29 16:08:51 [info]: ✅ Socket.io initialized
+2026-06-29 16:08:51 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:08:51 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:08:51 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:08:51 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:08:51 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:08:51 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5001                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:08:51 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:08:51 [warn]: Port 5001 is already in use. Retrying on port 5002...
+2026-06-29 16:08:51 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5002                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:08:52 [debug]: Socket connected: BOkwnDJ_-THmD22_AAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:11:07 [debug]: Socket disconnected: BOkwnDJ_-THmD22_AAAB (transport close)
+2026-06-29 16:11:09 [http]: ::1 - - [29/Jun/2026:11:11:09 +0000] "GET /health HTTP/1.1" 200 133 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:11:11 [debug]: Socket connected: 3KphR4OVa_MHQg_9AAAF (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:11:11 [debug]: Socket connected: BOr4jVRDaT0NRXy8AAAE (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:15:02 [info]: ✅ Socket.io initialized
+2026-06-29 16:15:02 [info]: ✅ Socket.io initialized
+2026-06-29 16:15:02 [info]: ✅ Socket.io initialized
+2026-06-29 16:15:02 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:15:02 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:15:02 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:15:02 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:15:02 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:15:02 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5001                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:15:02 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:15:02 [warn]: Port 5001 is already in use. Retrying on port 5002...
+2026-06-29 16:15:02 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5002                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:15:03 [debug]: Socket connected: F1yp-Ufvyw5iEEpGAAAB (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:15:04 [debug]: Socket connected: aMNJKBMXhrZD0N_tAAAD (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:15:17 [debug]: Socket disconnected: F1yp-Ufvyw5iEEpGAAAB (transport close)
+2026-06-29 16:15:17 [debug]: Socket disconnected: aMNJKBMXhrZD0N_tAAAD (transport close)
+2026-06-29 16:15:18 [http]: ::1 - - [29/Jun/2026:11:15:18 +0000] "GET /health HTTP/1.1" 200 132 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:15:19 [debug]: Socket connected: s3pPYTGOnikfXVVpAAAG (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:15:19 [debug]: Socket connected: I1e6yzWdjD3eNOM3AAAH (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:15:58 [http]: ::1 - - [29/Jun/2026:11:15:58 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:16:16 [http]: ::1 - - [29/Jun/2026:11:16:16 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:16:25 [http]: ::1 - - [29/Jun/2026:11:16:25 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:16:27 [http]: ::1 - - [29/Jun/2026:11:16:27 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:16:44 [http]: ::1 - - [29/Jun/2026:11:16:44 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:16:45 [http]: ::1 - - [29/Jun/2026:11:16:45 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:17:32 [http]: ::1 - - [29/Jun/2026:11:17:32 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:17:44 [debug]: Socket disconnected: s3pPYTGOnikfXVVpAAAG (transport close)
+2026-06-29 16:17:44 [debug]: Socket disconnected: I1e6yzWdjD3eNOM3AAAH (transport close)
+2026-06-29 16:17:45 [http]: ::1 - - [29/Jun/2026:11:17:45 +0000] "GET /health HTTP/1.1" 200 133 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:17:45 [debug]: Socket connected: ez_QtropgjVSV9EbAAAK (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:17:45 [debug]: Socket connected: rCQdGLTmqv3C9abzAAAL (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:19:03 [info]: New user registered: owner_264938@example.com (user)
+2026-06-29 16:19:03 [http]: ::1 - - [29/Jun/2026:11:19:03 +0000] "POST /api/auth/register HTTP/1.1" 201 518 "-" "node"
+2026-06-29 16:19:03 [http]: ::1 - - [29/Jun/2026:11:19:03 +0000] "POST /api/business/register HTTP/1.1" 201 1844 "-" "node"
+2026-06-29 16:21:04 [http]: ::1 - - [29/Jun/2026:11:21:04 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:21:23 [http]: ::1 - - [29/Jun/2026:11:21:23 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:21:25 [http]: ::1 - - [29/Jun/2026:11:21:25 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:21:56 [http]: ::1 - - [29/Jun/2026:11:21:56 +0000] "POST /api/business/register HTTP/1.1" 400 68 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:22:54 [info]: ✅ Socket.io initialized
+2026-06-29 16:22:54 [info]: ✅ Socket.io initialized
+2026-06-29 16:22:54 [info]: ✅ Socket.io initialized
+2026-06-29 16:22:54 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:22:54 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:22:54 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:22:54 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:22:54 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:22:54 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5001                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:22:54 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:22:54 [warn]: Port 5001 is already in use. Retrying on port 5002...
+2026-06-29 16:22:54 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5002                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:22:55 [debug]: Socket connected: Ky8X-ZDuV9gfdpIqAAAC (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:22:55 [debug]: Socket connected: 96nENKgf4JHiFcPTAAAD (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:23:05 [info]: New user registered: owner_64550@example.com (user)
+2026-06-29 16:23:05 [http]: ::1 - - [29/Jun/2026:11:23:05 +0000] "POST /api/auth/register HTTP/1.1" 201 516 "-" "node"
+2026-06-29 16:23:05 [http]: ::1 - - [29/Jun/2026:11:23:05 +0000] "POST /api/business/register HTTP/1.1" 201 1839 "-" "node"
+2026-06-29 16:23:26 [debug]: Socket disconnected: Ky8X-ZDuV9gfdpIqAAAC (transport close)
+2026-06-29 16:23:26 [debug]: Socket disconnected: 96nENKgf4JHiFcPTAAAD (transport close)
+2026-06-29 16:23:26 [http]: ::1 - - [29/Jun/2026:11:23:26 +0000] "GET /health HTTP/1.1" 200 131 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:27 [debug]: Socket connected: HIVq5FyyLXLiBYwlAAAF (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:23:27 [debug]: Socket connected: W9_HkBzqMbtl0_ogAAAH (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:23:45 [http]: ::1 - - [29/Jun/2026:11:23:45 +0000] "POST /api/business/register HTTP/1.1" 201 1591 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:46 [http]: ::1 - - [29/Jun/2026:11:23:46 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:46 [http]: ::1 - - [29/Jun/2026:11:23:46 +0000] "GET /api/business/me HTTP/1.1" 200 1421 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:46 [http]: ::1 - - [29/Jun/2026:11:23:46 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 200 1420 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:51 [http]: ::1 - - [29/Jun/2026:11:23:51 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:51 [http]: ::1 - - [29/Jun/2026:11:23:51 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:51 [http]: ::1 - - [29/Jun/2026:11:23:51 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 200 1420 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:52 [http]: ::1 - - [29/Jun/2026:11:23:52 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:57 [http]: ::1 - - [29/Jun/2026:11:23:57 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:57 [http]: ::1 - - [29/Jun/2026:11:23:57 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:57 [http]: ::1 - - [29/Jun/2026:11:23:57 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:57 [http]: ::1 - - [29/Jun/2026:11:23:57 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:57 [http]: ::1 - - [29/Jun/2026:11:23:57 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:23:57 [http]: ::1 - - [29/Jun/2026:11:23:57 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:24:05 [http]: ::1 - - [29/Jun/2026:11:24:05 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:24:05 [http]: ::1 - - [29/Jun/2026:11:24:05 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:24:05 [http]: ::1 - - [29/Jun/2026:11:24:05 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:24:05 [http]: ::1 - - [29/Jun/2026:11:24:05 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:37 [http]: ::1 - - [29/Jun/2026:11:28:37 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:37 [http]: ::1 - - [29/Jun/2026:11:28:37 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:37 [http]: ::1 - - [29/Jun/2026:11:28:37 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:37 [http]: ::1 - - [29/Jun/2026:11:28:37 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:37 [http]: ::1 - - [29/Jun/2026:11:28:37 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:37 [http]: ::1 - - [29/Jun/2026:11:28:37 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:38 [http]: ::1 - - [29/Jun/2026:11:28:38 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:38 [http]: ::1 - - [29/Jun/2026:11:28:38 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:38 [http]: ::1 - - [29/Jun/2026:11:28:38 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:28:38 [http]: ::1 - - [29/Jun/2026:11:28:38 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:48:38 [http]: ::1 - - [29/Jun/2026:11:48:38 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:48:38 [http]: ::1 - - [29/Jun/2026:11:48:38 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:48:38 [http]: ::1 - - [29/Jun/2026:11:48:38 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:48:38 [http]: ::1 - - [29/Jun/2026:11:48:38 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:48:38 [http]: ::1 - - [29/Jun/2026:11:48:38 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:48:38 [http]: ::1 - - [29/Jun/2026:11:48:38 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:48:59 [http]: ::1 - - [29/Jun/2026:11:48:59 +0000] "POST /api/queues/create HTTP/1.1" 404 70 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:17 [info]: ✅ Socket.io initialized
+2026-06-29 16:49:17 [info]: ✅ MongoDB connected: localhost
+2026-06-29 16:49:17 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-06-29 16:49:17 [warn]: Port 5001 is already in use. Retrying on port 5002...
+2026-06-29 16:49:17 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5002                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-06-29 16:49:19 [debug]: Socket disconnected: HIVq5FyyLXLiBYwlAAAF (transport close)
+2026-06-29 16:49:19 [debug]: Socket disconnected: W9_HkBzqMbtl0_ogAAAH (transport close)
+2026-06-29 16:49:20 [http]: ::1 - - [29/Jun/2026:11:49:20 +0000] "GET /health HTTP/1.1" 200 134 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:20 [http]: ::1 - - [29/Jun/2026:11:49:20 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:20 [http]: ::1 - - [29/Jun/2026:11:49:20 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:20 [http]: ::1 - - [29/Jun/2026:11:49:20 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:20 [http]: ::1 - - [29/Jun/2026:11:49:20 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:20 [http]: ::1 - - [29/Jun/2026:11:49:20 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:20 [http]: ::1 - - [29/Jun/2026:11:49:20 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-29 16:49:20 [debug]: Socket connected: JawcoTdfWrlSNk-AAAAK (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:49:20 [debug]: Socket connected: oxyiJUVg7kFwG_WdAAAL (user: 6a2e8c1729480cfe0d020ac1)
+2026-06-29 16:49:29 [http]: ::1 - - [29/Jun/2026:11:49:29 +0000] "POST /api/queues/create HTTP/1.1" 404 70 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"

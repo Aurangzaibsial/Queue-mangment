@@ -11,6 +11,12 @@ const mongoose = require('mongoose');
 
 const TokenSchema = new mongoose.Schema(
   {
+    businessId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Business',
+      required: true,
+      index: true,
+    },
     // Human-readable token number (e.g., "B-042")
     tokenNumber: {
       type: String,
@@ -100,10 +106,10 @@ const TokenSchema = new mongoose.Schema(
 );
 
 // ── Indexes for common queries ───────────────────
-TokenSchema.index({ queueId: 1, status: 1 });
-TokenSchema.index({ userId: 1 });
-TokenSchema.index({ status: 1, priority: -1, createdAt: 1 }); // Sort order for queue
-TokenSchema.index({ tokenNumber: 1, queueId: 1 }, { unique: true });
+TokenSchema.index({ businessId: 1, queueId: 1, status: 1 });
+TokenSchema.index({ businessId: 1, userId: 1 });
+TokenSchema.index({ businessId: 1, status: 1, priority: -1, createdAt: 1 }); // Sort order for queue
+TokenSchema.index({ businessId: 1, tokenNumber: 1, queueId: 1 }, { unique: true });
 
 // ── Virtual: Time spent waiting (ms) ─────────────
 TokenSchema.virtual('waitDuration').get(function () {

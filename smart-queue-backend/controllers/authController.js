@@ -95,10 +95,16 @@ exports.login = async (req, res, next) => {
  */
 exports.getMe = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
-    return sendSuccess(res, 200, 'Profile retrieved', user.toSafeObject());
-  } catch (error) {
-    next(error);
+    const user = await User.findById(req.user.id);
+    sendSuccess(res, 200, 'User profile retrieved', {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      businessId: user.businessId,
+    });
+  } catch (err) {
+    next(err);
   }
 };
 
