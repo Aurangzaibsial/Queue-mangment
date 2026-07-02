@@ -59,7 +59,7 @@ function Section({ title, icon, children, defaultOpen = true }) {
 }
 
 export default function BusinessSettings() {
-  const { business, setBusiness } = useAuth();
+  const { business, setBusiness, updateUser } = useAuth();
   const [form, setForm] = useState({
     name: '', slug: '', tagline: '', about: '', email: '', phone: '', website: '',
     address: '', city: '', state: '', country: '', zipCode: '',
@@ -143,9 +143,10 @@ export default function BusinessSettings() {
     try {
       if (isOnboarding) {
         const res = await api.post('/business/register', form);
-        const newBiz = res.data;
+        const newBiz = res.data.business;
+        const updatedUser = res.data.user;
         setBusiness(newBiz);
-        localStorage.setItem('business', JSON.stringify(newBiz));
+        if (updatedUser) updateUser(updatedUser);
         setIsOnboarding(false);
         setMessage('✅ Business registered successfully!');
       } else {

@@ -9,6 +9,7 @@
 
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Business = require('../models/Business');
 const { sendSuccess, sendError } = require('../utils/apiResponse');
 const logger = require('../utils/logger');
 
@@ -21,6 +22,20 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE || '7d',
   });
+};
+
+/**
+ * Build a consistent auth payload with user profile and linked business (if any).
+ */
+const buildAuthPayload = async (user) => {
+  let business = null;
+  if (user.businessId) {
+    business = await Business.findById(user.businessId).select('-ownerId -__v');
+  }
+  return {
+    user: user.toSafeObject(),
+    business,
+  };
 };
 
 // ── POST /api/auth/register ─────────────────────
@@ -39,12 +54,13 @@ exports.register = async (req, res, next) => {
     const user = await User.create({ name, email, password, role: safeRole });
 
     const token = generateToken(user._id);
+    const payload = await buildAuthPayload(user);
 
     logger.info(`New user registered: ${email} (${safeRole})`);
 
     return sendSuccess(res, 201, 'Account created successfully', {
       token,
-      user: user.toSafeObject(),
+      ...payload,
     });
   } catch (error) {
     next(error);
@@ -76,12 +92,13 @@ exports.login = async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     const token = generateToken(user._id);
+    const payload = await buildAuthPayload(user);
 
     logger.info(`User logged in: ${email}`);
 
     return sendSuccess(res, 200, 'Login successful', {
       token,
-      user: user.toSafeObject(),
+      ...payload,
     });
   } catch (error) {
     next(error);
@@ -95,14 +112,12 @@ exports.login = async (req, res, next) => {
  */
 exports.getMe = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user.id);
-    sendSuccess(res, 200, 'User profile retrieved', {
-      id: user._id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-      businessId: user.businessId,
-    });
+    const user = await User.findById(req.user._id || req.user.id);
+    if (!user) {
+      return sendError(res, 404, 'User not found.');
+    }
+    const payload = await buildAuthPayload(user);
+    sendSuccess(res, 200, 'User profile retrieved', payload);
   } catch (err) {
     next(err);
   }
@@ -151,7 +166,8 @@ exports.changePassword = async (req, res, next) => {
     await user.save();
 
     const token = generateToken(user._id);
-    return sendSuccess(res, 200, 'Password changed successfully', { token });
+    const payload = await buildAuthPayload(user);
+    return sendSuccess(res, 200, 'Password changed successfully', { token, ...payload });
   } catch (error) {
     next(error);
   }

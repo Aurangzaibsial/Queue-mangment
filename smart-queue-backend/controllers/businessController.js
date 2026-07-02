@@ -90,13 +90,7 @@ exports.registerBusiness = async (req, res, next) => {
 
     sendSuccess(res, 201, 'Business registered successfully', {
       business,
-      user: {
-        id: updatedUser._id,
-        name: updatedUser.name,
-        email: updatedUser.email,
-        role: updatedUser.role,
-        businessId: updatedUser.businessId,
-      }
+      user: updatedUser.toSafeObject(),
     });
   } catch (err) {
     next(err);

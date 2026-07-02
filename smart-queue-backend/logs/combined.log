@@ -1158,3 +1158,193 @@
 2026-06-29 16:49:20 [debug]: Socket connected: JawcoTdfWrlSNk-AAAAK (user: 6a2e8c1729480cfe0d020ac1)
 2026-06-29 16:49:20 [debug]: Socket connected: oxyiJUVg7kFwG_WdAAAL (user: 6a2e8c1729480cfe0d020ac1)
 2026-06-29 16:49:29 [http]: ::1 - - [29/Jun/2026:11:49:29 +0000] "POST /api/queues/create HTTP/1.1" 404 70 "http://[::1]:3001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 16:56:04 [info]: ✅ Socket.io initialized
+2026-07-02 16:56:04 [error]: ❌ MongoDB connection error (attempt 1): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:04 [info]: ⏳ Retrying in 5s...
+2026-07-02 16:56:04 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:04 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-07-02 16:56:09 [error]: ❌ MongoDB connection error (attempt 2): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:09 [info]: ⏳ Retrying in 5s...
+2026-07-02 16:56:09 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:14 [error]: ❌ MongoDB connection error (attempt 3): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:14 [info]: ⏳ Retrying in 5s...
+2026-07-02 16:56:14 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:19 [error]: ❌ MongoDB connection error (attempt 4): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:19 [info]: ⏳ Retrying in 5s...
+2026-07-02 16:56:19 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:24 [error]: ❌ MongoDB connection error (attempt 5): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 17:14:29 [info]: ✅ Socket.io initialized
+2026-07-02 17:14:31 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-00.wbopcac.mongodb.net
+2026-07-02 17:14:31 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-07-02 17:16:30 [info]: ✅ Socket.io initialized
+2026-07-02 17:16:30 [info]: ✅ Socket.io initialized
+2026-07-02 17:16:31 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-01.wbopcac.mongodb.net
+2026-07-02 17:16:31 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-07-02 17:16:31 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 17:16:31 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-07-02 17:16:32 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5001                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-07-02 17:16:35 [info]: ✅ Socket.io initialized
+2026-07-02 17:16:35 [info]: ✅ Socket.io initialized
+2026-07-02 17:16:37 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 17:16:37 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-00.wbopcac.mongodb.net
+2026-07-02 17:16:37 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-07-02 17:16:37 [warn]: Port 5000 is already in use. Retrying on port 5001...
+2026-07-02 17:16:37 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5001                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-07-02 17:18:25 [http]: ::1 - - [02/Jul/2026:12:18:25 +0000] "GET /health HTTP/1.1" 200 133 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:19:10 [info]: New user registered: aurangzaibsial515@gmail.com (admin)
+2026-07-02 17:19:10 [http]: ::1 - - [02/Jul/2026:12:19:10 +0000] "POST /api/auth/register HTTP/1.1" 201 523 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:19:11 [debug]: Socket connected: SWi11iXSlkV9_wfyAAAB (user: 6a46573dec7b0c88dc002b62)
+2026-07-02 17:19:52 [http]: ::1 - - [02/Jul/2026:12:19:52 +0000] "POST /api/business/register HTTP/1.1" 201 1677 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:19:52 [http]: ::1 - - [02/Jul/2026:12:19:52 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:19:53 [http]: ::1 - - [02/Jul/2026:12:19:53 +0000] "GET /api/business/me HTTP/1.1" 200 1496 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:19:54 [http]: ::1 - - [02/Jul/2026:12:19:54 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:19:59 [http]: ::1 - - [02/Jul/2026:12:19:59 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:19:59 [http]: ::1 - - [02/Jul/2026:12:19:59 +0000] "GET /api/queues/list?slug= HTTP/1.1" 404 73 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:00 [http]: ::1 - - [02/Jul/2026:12:20:00 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:00 [http]: ::1 - - [02/Jul/2026:12:20:00 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:13 [http]: ::1 - - [02/Jul/2026:12:20:13 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:13 [http]: ::1 - - [02/Jul/2026:12:20:13 +0000] "GET /api/queues/list?slug=undefined HTTP/1.1" 404 82 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:13 [http]: ::1 - - [02/Jul/2026:12:20:13 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:14 [http]: ::1 - - [02/Jul/2026:12:20:14 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:14 [http]: ::1 - - [02/Jul/2026:12:20:14 +0000] "GET /api/business/me HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:20:14 [http]: ::1 - - [02/Jul/2026:12:20:14 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:21:19 [debug]: Socket disconnected: SWi11iXSlkV9_wfyAAAB (client namespace disconnect)
+2026-07-02 17:21:47 [info]: User logged in: aurangzaibsial515@gmail.com
+2026-07-02 17:21:47 [http]: ::1 - - [02/Jul/2026:12:21:47 +0000] "POST /api/auth/login HTTP/1.1" 200 572 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 17:21:47 [debug]: Socket connected: bPmsNJTIb2BjoHljAAAD (user: 6a46573dec7b0c88dc002b62)
+2026-07-02 17:25:38 [debug]: Socket disconnected: bPmsNJTIb2BjoHljAAAD (client namespace disconnect)
+2026-07-02 18:00:49 [info]: ✅ Socket.io initialized
+2026-07-02 18:00:50 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:00:50 [info]: 
+╔══════════════════════════════════════════╗
+║   Smart Queue API — Server Started       ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-07-02 18:01:21 [http]: ::1 - - [02/Jul/2026:13:01:21 +0000] "GET /health HTTP/1.1" 200 132 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:02:30 [info]: New user registered: qasim@gmail.com (admin)
+2026-07-02 18:02:30 [http]: ::1 - - [02/Jul/2026:13:02:30 +0000] "POST /api/auth/register HTTP/1.1" 201 514 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:02:30 [debug]: Socket connected: cThfyqA9z1gUzIDtAAAB (user: 6a466165b23422b3d0bb174e)
+2026-07-02 18:03:09 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:14 [warn]: Auth middleware JWT error: connection <monitor> to 159.41.207.243:27017 closed
+2026-07-02 18:03:14 [http]: ::1 - - [02/Jul/2026:13:03:14 +0000] "POST /api/business/register HTTP/1.1" 401 52 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:03:14 [debug]: Socket disconnected: cThfyqA9z1gUzIDtAAAB (client namespace disconnect)
+2026-07-02 18:03:14 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:14 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:14 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:14 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:19 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:19 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:19 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:19 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:19 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:24 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:24 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:24 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:24 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:24 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:29 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:29 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:29 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:29 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:29 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:34 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:34 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:34 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:34 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:34 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:39 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:40 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:40 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:40 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:40 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:44 [error]: MongoServerSelectionError: connection <monitor> to 159.41.176.6:27017 timed out
+    at Topology.selectServer (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\sdam\topology.js:327:38)
+    at async tryOperation (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\operations\execute_operation.js:148:18)
+    at async executeOperation (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async FindCursor._initialize (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\find_cursor.js:62:26)
+    at async FindCursor.cursorInit (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)
+    at async FindCursor.fetchBatch (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)
+    at async FindCursor.next (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)
+    at async Collection.findOne (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\collection.js:313:24)
+    at async model.Query._findOne (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongoose\lib\query.js:2710:15)
+    at async model.Query.exec (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongoose\lib\query.js:4627:63)
+2026-07-02 18:03:44 [http]: ::1 - - [02/Jul/2026:13:03:44 +0000] "POST /api/auth/login HTTP/1.1" 500 82 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:03:45 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:45 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:45 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:45 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:45 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:50 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:50 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:50 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:50 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:50 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:55 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:03:55 [warn]: ⚠️  MongoDB disconnected. Attempting reconnect...
+2026-07-02 18:03:55 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:55 [info]: ⏳ Retrying in 5s...
+2026-07-02 18:03:55 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:55 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:04:00 [info]: ✅ MongoDB connected: ac-tki9cin-shard-00-02.wbopcac.mongodb.net
+2026-07-02 18:04:24 [warn]: [POST /api/auth/register] 409 — Email already exists.
+2026-07-02 18:04:24 [http]: ::1 - - [02/Jul/2026:13:04:24 +0000] "POST /api/auth/register HTTP/1.1" 409 51 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:04:34 [info]: User logged in: qasim@gmail.com
+2026-07-02 18:04:34 [http]: ::1 - - [02/Jul/2026:13:04:34 +0000] "POST /api/auth/login HTTP/1.1" 200 541 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:04:35 [debug]: Socket connected: h-jWB6MVExE_giW9AAAD (user: 6a466165b23422b3d0bb174e)
+2026-07-02 18:05:14 [http]: ::1 - - [02/Jul/2026:13:05:14 +0000] "POST /api/business/register HTTP/1.1" 201 1820 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:14 [http]: ::1 - - [02/Jul/2026:13:05:14 +0000] "GET /api/queues/list?slug=e-juhdy-ki-1 HTTP/1.1" 404 85 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:15 [http]: ::1 - - [02/Jul/2026:13:05:15 +0000] "GET /api/business/me HTTP/1.1" 200 1490 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:16 [http]: ::1 - - [02/Jul/2026:13:05:16 +0000] "GET /api/admin/analytics?days=1 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:20 [http]: ::1 - - [02/Jul/2026:13:05:20 +0000] "GET /api/queues/list?slug=e-juhdy-ki-1 HTTP/1.1" 404 85 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:20 [http]: ::1 - - [02/Jul/2026:13:05:20 +0000] "GET /api/queues/list?slug=e-juhdy-ki-1 HTTP/1.1" 404 85 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:20 [http]: ::1 - - [02/Jul/2026:13:05:20 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:21 [http]: ::1 - - [02/Jul/2026:13:05:21 +0000] "GET /api/admin/analytics?days=7 HTTP/1.1" 304 - "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:29 [debug]: Socket disconnected: h-jWB6MVExE_giW9AAAD (client namespace disconnect)
+2026-07-02 18:05:49 [info]: New user registered: bilal@gmail.com (user)
+2026-07-02 18:05:49 [http]: ::1 - - [02/Jul/2026:13:05:49 +0000] "POST /api/auth/register HTTP/1.1" 201 513 "http://[::1]:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-07-02 18:05:50 [debug]: Socket connected: qTwaP4KulMYwqK-eAAAF (user: 6a46622db23422b3d0bb1779)

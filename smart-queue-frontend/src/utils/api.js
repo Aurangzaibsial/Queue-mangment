@@ -55,7 +55,9 @@ const getSocketUrl = async () => {
 
 const api = {
   _token: null,
+  _onUnauthorized: null,
   setToken(t) { this._token = t; },
+  setUnauthorizedHandler(fn) { this._onUnauthorized = fn; },
 
   async req(method, path, body) {
     await discoverBackend();
@@ -68,7 +70,12 @@ const api = {
       body: body ? JSON.stringify(body) : undefined,
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message || `HTTP ${res.status}`);
+    if (!res.ok) {
+      if (res.status === 401 && this._onUnauthorized && path !== '/auth/login' && path !== '/auth/register') {
+        this._onUnauthorized();
+      }
+      throw new Error(data.message || `HTTP ${res.status}`);
+    }
     return data;
   },
 

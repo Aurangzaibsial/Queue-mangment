@@ -68,7 +68,7 @@ export default function BookingPage() {
   const handleBook = async (e) => {
     e.preventDefault();
     if (!user) {
-      navigate('/auth');
+      navigate(`/auth?mode=login&redirect=${encodeURIComponent(`/q/${slug}`)}`);
       return;
     }
     if (!booking.queueId) {

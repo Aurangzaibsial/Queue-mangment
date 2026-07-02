@@ -327,3 +327,41 @@
     at Function.process_params (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:346:12)
     at next (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\express\lib\router\index.js:280:10)
     at internalNext (C:\Users\Muhammad Aurangzaib\Desktop\Queuemanagment2\Queue-mangment\smart-queue-backend\node_modules\helmet\index.cjs:537:6)
+2026-07-02 16:56:04 [error]: ❌ MongoDB connection error (attempt 1): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:04 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:09 [error]: ❌ MongoDB connection error (attempt 2): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:09 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:14 [error]: ❌ MongoDB connection error (attempt 3): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:14 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:19 [error]: ❌ MongoDB connection error (attempt 4): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:19 [error]: MongoDB error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 16:56:24 [error]: ❌ MongoDB connection error (attempt 5): The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2026-07-02 18:03:14 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:14 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:19 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:19 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:24 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:24 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:29 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:29 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:34 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:34 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:40 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:40 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:44 [error]: MongoServerSelectionError: connection <monitor> to 159.41.176.6:27017 timed out
+    at Topology.selectServer (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\sdam\topology.js:327:38)
+    at async tryOperation (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\operations\execute_operation.js:148:18)
+    at async executeOperation (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async FindCursor._initialize (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\find_cursor.js:62:26)
+    at async FindCursor.cursorInit (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)
+    at async FindCursor.fetchBatch (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)
+    at async FindCursor.next (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)
+    at async Collection.findOne (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongodb\lib\collection.js:313:24)
+    at async model.Query._findOne (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongoose\lib\query.js:2710:15)
+    at async model.Query.exec (C:\Users\Muhammad Aurangzaib\Desktop\Queue1\Queue-mangment\smart-queue-backend\node_modules\mongoose\lib\query.js:4627:63)
+2026-07-02 18:03:45 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:45 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:50 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:50 [error]: MongoDB error: Server selection timed out after 5000 ms
+2026-07-02 18:03:55 [error]: ❌ MongoDB connection error (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2026-07-02 18:03:55 [error]: MongoDB error: Server selection timed out after 5000 ms

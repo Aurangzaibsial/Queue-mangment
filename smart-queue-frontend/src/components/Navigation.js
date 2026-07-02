@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { getRoleLabel, getRoleBadgeColor, isBusinessUser, isPlatformAdmin, isCustomer } from '../utils/auth';
 
 export default function Navigation() {
   const { user, business, logout } = useAuth();
   const navigate = useNavigate();
+  const badge = getRoleBadgeColor(user.role);
 
   const handleLogout = () => {
     logout();
@@ -23,7 +25,7 @@ export default function Navigation() {
             </div>
           </Link>
 
-          {(user.role === 'admin' || user.role === 'owner') && (
+          {isBusinessUser(user.role) && (
             <div style={{ display: "flex", gap: 16, marginLeft: 24 }}>
               <Link to="/dashboard" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Dashboard</Link>
               <Link to="/settings" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Business Settings</Link>
@@ -32,11 +34,34 @@ export default function Navigation() {
               )}
             </div>
           )}
+
+          {isPlatformAdmin(user.role) && (
+            <div style={{ display: "flex", gap: 16, marginLeft: 24 }}>
+              <Link to="/dashboard" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Platform Dashboard</Link>
+            </div>
+          )}
+
+          {isCustomer(user.role) && (
+            <div style={{ display: "flex", gap: 16, marginLeft: 24 }}>
+              <Link to="/" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Home</Link>
+            </div>
+          )}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ fontSize: 13, color: "#64748B" }}>
-            {user.name} ({user.role})
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <span style={{ fontSize: 13, color: "#64748B" }}>{user.name}</span>
+            <span style={{
+              fontSize: 11,
+              fontWeight: 600,
+              padding: '3px 10px',
+              borderRadius: 999,
+              background: badge.bg,
+              color: badge.color,
+              border: `1px solid ${badge.border}`,
+            }}>
+              {getRoleLabel(user.role)}
+            </span>
           </div>
           <button onClick={handleLogout}
             style={{ background: "#FEF2F2", color: "#DC2626", border: "1px solid #FECACA", borderRadius: 10, padding: "8px 14px", fontSize: 13, fontWeight: 500, cursor: "pointer" }}>

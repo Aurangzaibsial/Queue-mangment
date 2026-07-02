@@ -9,3 +9,16 @@ body {
   background: #F8FAFC;
   -webkit-font-smoothing: antialiased;
 }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .auth-brand-panel {
+    display: none !important;
+  }
+  .auth-page {
+    flex-direction: column;
+  }
+}

@@ -25,7 +25,11 @@ router.post(
   [
     body('name').trim().isLength({ min: 2, max: 60 }).withMessage('Name must be 2–60 characters'),
     body('email').trim().isEmail().normalizeEmail().withMessage('Invalid email address'),
-    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
+    body('password')
+      .isLength({ min: 8 })
+      .withMessage('Password must be at least 8 characters')
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)/)
+      .withMessage('Password must contain at least one letter and one number'),
     body('role').optional().isIn(['user', 'admin']).withMessage('Role must be user or admin'),
   ],
   validate,
@@ -64,7 +68,11 @@ router.put(
   protect,
   [
     body('currentPassword').notEmpty().withMessage('Current password is required'),
-    body('newPassword').isLength({ min: 6 }).withMessage('New password must be at least 6 characters'),
+    body('newPassword')
+      .isLength({ min: 8 })
+      .withMessage('New password must be at least 8 characters')
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)/)
+      .withMessage('New password must contain at least one letter and one number'),
   ],
   validate,
   changePassword

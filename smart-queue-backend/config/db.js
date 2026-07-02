@@ -22,7 +22,7 @@ let retryCount = 0;
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI, {
-      // Use the new URL parser and unified topology
+
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
     });

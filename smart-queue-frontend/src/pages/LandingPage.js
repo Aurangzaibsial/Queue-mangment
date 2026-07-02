@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { getHomeCtaPath, getHomeCtaLabel } from '../utils/auth';
 
 const features = [
   {
@@ -46,7 +47,7 @@ const categories = [
 
 export default function LandingPage() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, business } = useAuth();
 
   return (
     <div style={{ background: '#F8FAFC', minHeight: '100vh' }}>
@@ -98,7 +99,7 @@ export default function LandingPage() {
 
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <button
-              onClick={() => navigate(user ? '/dashboard' : '/auth')}
+              onClick={() => navigate(getHomeCtaPath(user, business))}
               style={{
                 background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
                 color: 'white',
@@ -114,12 +115,12 @@ export default function LandingPage() {
               onMouseEnter={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 32px rgba(59,130,246,0.45)'; }}
               onMouseLeave={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 4px 24px rgba(59,130,246,0.35)'; }}
             >
-              {user ? 'Go to Dashboard' : 'Get Started Free'} →
+              {getHomeCtaLabel(user, business)} →
             </button>
 
             {!user && (
               <button
-                onClick={() => navigate('/auth')}
+                onClick={() => navigate('/auth?mode=login')}
                 style={{
                   background: 'rgba(255,255,255,0.08)',
                   color: 'white',
