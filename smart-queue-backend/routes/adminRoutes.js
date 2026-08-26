@@ -6,13 +6,27 @@ const { body, query } = require('express-validator');
 const router = express.Router();
 
 const {
-  callNext, updateCounter, createCounter, getAnalytics, optimizeQueue, listUsers,
+  callNext, markServed, updateCounter, createCounter, getAnalytics, optimizeQueue, listUsers,
+  getPlatformStats, updateBusinessStatus, listBusinesses,
 } = require('../controllers/adminController');
 const { protect, adminOnly, superAdminOnly } = require('../middleware/auth');
 const { requireBusiness } = require('../middleware/tenantMiddleware');
 const validate = require('../middleware/validate');
 
-// All admin routes require authentication, admin/owner role, and an active business
+// ── Superadmin-only platform routes (no business context needed) ──
+router.get('/platform-stats', protect, superAdminOnly, getPlatformStats);
+router.get('/platform/users', protect, superAdminOnly, listUsers);
+router.get('/platform/businesses', protect, superAdminOnly, listBusinesses);
+router.patch(
+  '/platform/businesses/:id/status',
+  protect,
+  superAdminOnly,
+  [body('status').isIn(['pending', 'active', 'suspended', 'cancelled']).withMessage('Invalid status')],
+  validate,
+  updateBusinessStatus
+);
+
+// All remaining admin routes require authentication, admin/owner role, and an active business
 router.use(protect, adminOnly, requireBusiness);
 
 // POST /api/admin/call-next
@@ -24,6 +38,14 @@ router.post(
   ],
   validate,
   callNext
+);
+
+// POST /api/admin/mark-served
+router.post(
+  '/mark-served',
+  [body('tokenId').isMongoId().withMessage('Valid token ID is required')],
+  validate,
+  markServed
 );
 
 // POST /api/admin/counters
@@ -69,7 +91,8 @@ router.post(
   optimizeQueue
 );
 
-// GET /api/admin/users — superadmin only
+// GET /api/admin/users — superadmin only (kept for backward compat)
 router.get('/users', superAdminOnly, listUsers);
 
 module.exports = router;
+

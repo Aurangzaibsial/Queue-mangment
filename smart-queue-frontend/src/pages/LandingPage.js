@@ -86,7 +86,7 @@ export default function LandingPage() {
           </div>
 
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, lineHeight: 1.1, marginBottom: 20, letterSpacing: '-0.02em' }}>
-            Smart Queue Management
+            Naubex
             <br />
             <span style={{ background: 'linear-gradient(90deg, #3B82F6, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               Reimagined with AI
@@ -238,7 +238,7 @@ export default function LandingPage() {
       {/* ── Footer ────────────────────────────────── */}
       <footer style={{ background: '#0F172A', color: '#94A3B8', textAlign: 'center', padding: '32px 24px', fontSize: 13 }}>
         <div style={{ marginBottom: 8 }}>
-          <span style={{ fontWeight: 700, color: 'white' }}>QueueFlow AI</span> — Smart Queue Management
+          <span style={{ fontWeight: 700, color: 'white' }}>Naubex</span> — AI Queue Management
         </div>
         <div>© {new Date().getFullYear()} All rights reserved.</div>
       </footer>

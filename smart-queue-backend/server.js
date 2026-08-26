@@ -1,7 +1,7 @@
 /**
  * server.js
  * ─────────────────────────────────────────────
- * Smart Queue Management System — Main Server
+ * Naubex — Main Server
  *
  * Architecture:
  *   Express HTTP server + Socket.io WebSocket
@@ -30,6 +30,7 @@ const businessRoutes = require('./routes/businessRoutes');
 const queueRoutes = require('./routes/queueRoutes');
 const tokenRoutes = require('./routes/tokenRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const aiAnalyticsRoutes = require('./routes/aiAnalyticsRoutes');
 
 // ── Socket.io handler ────────────────────────────
 const initSocket = require('./sockets/queueSocket');
@@ -113,18 +114,22 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 // ── Global rate limiter ──────────────────────────
+const isDev = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV;
+
 const globalLimiter = rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 min
-  max: parseInt(process.env.RATE_LIMIT_MAX) || 100,
+  max: isDev ? 50000 : (parseInt(process.env.RATE_LIMIT_MAX) || 2000),
   standardHeaders: true,
   legacyHeaders: false,
+  skip: (req) => isDev || req.ip === '127.0.0.1' || req.ip === '::1' || req.ip === '::ffff:127.0.0.1',
   message: { success: false, message: 'Too many requests, please try again later.' },
 });
 
 // Stricter limiter for auth routes
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 10,
+  max: isDev ? 1000 : 50,
+  skip: (req) => isDev || req.ip === '127.0.0.1' || req.ip === '::1' || req.ip === '::ffff:127.0.0.1',
   message: { success: false, message: 'Too many auth attempts. Try again in 15 minutes.' },
 });
 
@@ -140,7 +145,7 @@ app.use('/api/auth/register', authLimiter);
 app.get('/health', (_req, res) => {
   res.json({
     success: true,
-    message: 'Smart Queue API is running',
+    message: 'Naubex API is running',
     version: '1.0.0',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
@@ -151,8 +156,10 @@ app.get('/health', (_req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/business', businessRoutes);
 app.use('/api/queue', queueRoutes);
+app.use('/api/queues', queueRoutes);
 app.use('/api/token', tokenRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/ai', aiAnalyticsRoutes);
 
 // ── 404 handler ──────────────────────────────────
 app.use(notFound);
@@ -189,7 +196,7 @@ const startServer = async () => {
   server.on('listening', () => {
     logger.info(`
 ╔══════════════════════════════════════════╗
-║   Smart Queue API — Server Started       ║
+║   Naubex API — Server Started            ║
 ║   Port    : ${currentPort}                           ║
 ║   Mode    : ${process.env.NODE_ENV || 'development'}                  ║
 ║   WS      : Socket.io enabled            ║

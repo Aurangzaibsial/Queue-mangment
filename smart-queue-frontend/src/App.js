@@ -9,6 +9,8 @@ import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
 import BusinessSettings from './pages/BusinessSettings';
 import BookingPage from './pages/BookingPage';
+import BusinessListing from './pages/BusinessListing';
+import SuperAdminDashboard from './pages/SuperAdminDashboard';
 import Navigation from './components/Navigation';
 
 function AuthLoadingScreen() {
@@ -19,11 +21,15 @@ function AuthLoadingScreen() {
   );
 }
 
-function ProtectedRoute({ children, requireAdmin, requireBusiness }) {
+function ProtectedRoute({ children, requireAdmin, requireBusiness, requireSuperAdmin }) {
   const { user, business, loading } = useAuth();
 
   if (loading) return <AuthLoadingScreen />;
   if (!user) return <Navigate to="/auth" replace />;
+
+  if (requireSuperAdmin && user.role !== 'superadmin') {
+    return <Navigate to="/" replace />;
+  }
 
   if (requireAdmin && !isBusinessUser(user.role) && !isPlatformAdmin(user.role)) {
     return <Navigate to="/" replace />;
@@ -49,6 +55,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/businesses" element={<BusinessListing />} />
 
         <Route path="/dashboard" element={
           <ProtectedRoute requireAdmin requireBusiness>
@@ -64,6 +71,13 @@ export default function App() {
 
         {/* Public booking page for a specific business */}
         <Route path="/q/:slug" element={<BookingPage />} />
+
+        {/* Super Admin portal */}
+        <Route path="/superadmin" element={
+          <ProtectedRoute requireSuperAdmin>
+            <SuperAdminDashboard />
+          </ProtectedRoute>
+        } />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

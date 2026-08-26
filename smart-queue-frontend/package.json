@@ -1,5 +1,5 @@
 {
-  "name": "smart-queue-frontend",
+  "name": "naubex-frontend",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set HOST=::1&& react-scripts start",
+    "dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

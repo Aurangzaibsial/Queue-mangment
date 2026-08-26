@@ -74,6 +74,7 @@ export default function BusinessSettings() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
   const [isOnboarding, setIsOnboarding] = useState(!business);
+  const [suggesting, setSuggesting] = useState(false);
 
   const fetchBusiness = useCallback(async () => {
     if (!business) return;
@@ -122,6 +123,22 @@ export default function BusinessSettings() {
       setForm(f => ({ ...f, socialLinks: { ...f.socialLinks, [name.split('.')[1]]: value } }));
     } else {
       setForm(f => ({ ...f, [name]: value }));
+    }
+  };
+
+  const generateBusinessSuggestions = async () => {
+    setSuggesting(true);
+    try {
+      const res = await api.post('/ai/business-suggestions', {
+        name: form.name,
+        category: form.category,
+        city: form.city,
+      });
+      setMessage(`✅ AI suggestions:\n${res.data?.text || res.text || ''}`);
+    } catch (err) {
+      setMessage(`❌ ${err.message}`);
+    } finally {
+      setSuggesting(false);
     }
   };
 
@@ -265,6 +282,7 @@ export default function BusinessSettings() {
             <label style={labelStyle}>About</label>
             <textarea name="about" value={form.about} onChange={handleChange} style={{ ...inputStyle, minHeight: 80, resize: 'vertical' }} placeholder="Describe your business..." maxLength={2000} />
           </div>
+          {isOnboarding && <button type="button" onClick={generateBusinessSuggestions} disabled={suggesting} style={{ ...btnPrimary, marginTop: 16, background: '#0F172A' }}>{suggesting ? 'Generating...' : 'Generate AI business suggestions'}</button>}
         </Section>
 
         {/* ── Location ──────────────────────────── */}

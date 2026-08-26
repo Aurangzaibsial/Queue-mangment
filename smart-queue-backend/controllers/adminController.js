@@ -51,8 +51,12 @@ exports.callNext = async (req, res, next) => {
     }
 
     // ── Pull next waiting token (priority order) ──
+    const queue = await Queue.findOne({ _id: queueId, businessId: req.businessId });
+    if (!queue) return sendError(res, 404, 'Queue not found or belongs to another business.');
+
     const nextToken = await Token.findOne({
       queueId,
+      businessId: req.businessId,
       status: 'waiting',
     })
       .sort({ priority: -1, createdAt: 1 }) // Emergency > VIP > Normal, then FIFO
@@ -121,6 +125,45 @@ exports.callNext = async (req, res, next) => {
       counter,
       queueLength: updatedQueue.length,
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ── POST /api/admin/mark-served ─────────────────
+/**
+ * Mark a waiting token as served without assigning it to a counter.
+ * Body: { tokenId }
+ */
+exports.markServed = async (req, res, next) => {
+  try {
+    const { tokenId } = req.body;
+    const token = await Token.findOne({
+      _id: tokenId,
+      businessId: req.businessId,
+      status: 'waiting',
+    });
+
+    if (!token) return sendError(res, 404, 'Waiting token not found or belongs to another business.');
+
+    token.status = 'completed';
+    token.completedAt = new Date();
+    token.actualWaitTime = (token.completedAt - token.createdAt) / 60000;
+    await token.save();
+    await learnFromCompletedToken(token);
+
+    await Token.updateMany(
+      { queueId: token.queueId, businessId: req.businessId, status: 'waiting', position: { $gt: token.position } },
+      { $inc: { position: -1 } }
+    );
+    await recalculateQueueWaitTimes(token.queueId);
+
+    if (req.io) {
+      req.io.to(`queue:${token.queueId}`).emit('queueUpdated', { queueId: token.queueId });
+      req.io.to(`queue:${token.queueId}`).emit('tokenServed', { token });
+    }
+
+    return sendSuccess(res, 200, 'Token marked as served', { token });
   } catch (error) {
     next(error);
   }
@@ -332,6 +375,122 @@ exports.listUsers = async (req, res, next) => {
     ]);
 
     return sendSuccess(res, 200, 'Users retrieved', users, {
+      page: parseInt(page), limit: parseInt(limit), total, pages: Math.ceil(total / limit),
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ── GET /api/admin/platform-stats ────────────────
+/**
+ * Get platform-wide statistics (superadmin only).
+ * Returns total users, businesses by status, recent registrations.
+ */
+exports.getPlatformStats = async (req, res, next) => {
+  try {
+    const User = require('../models/User');
+    const Business = require('../models/Business');
+
+    const [
+      totalUsers,
+      usersByRole,
+      totalBusinesses,
+      businessesByStatus,
+      recentUsers,
+      recentBusinesses,
+    ] = await Promise.all([
+      User.countDocuments(),
+      User.aggregate([
+        { $group: { _id: '$role', count: { $sum: 1 } } },
+      ]),
+      Business.countDocuments(),
+      Business.aggregate([
+        { $group: { _id: '$status', count: { $sum: 1 } } },
+      ]),
+      User.find().select('-password').sort({ createdAt: -1 }).limit(10),
+      Business.find().populate('ownerId', 'name email').sort({ createdAt: -1 }).limit(10),
+    ]);
+
+    // Reshape arrays into plain objects for easy frontend use
+    const userRoleCounts = {};
+    usersByRole.forEach(({ _id, count }) => { userRoleCounts[_id] = count; });
+
+    const businessStatusCounts = { pending: 0, active: 0, suspended: 0, cancelled: 0 };
+    businessesByStatus.forEach(({ _id, count }) => { businessStatusCounts[_id] = count; });
+
+    return sendSuccess(res, 200, 'Platform stats retrieved', {
+      users: {
+        total: totalUsers,
+        byRole: userRoleCounts,
+        recent: recentUsers,
+      },
+      businesses: {
+        total: totalBusinesses,
+        byStatus: businessStatusCounts,
+        recent: recentBusinesses,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ── PATCH /api/admin/business/:id/approve ────────
+/**
+ * Approve or suspend a business (superadmin only).
+ * Body: { status: 'active' | 'suspended' | 'cancelled' }
+ */
+exports.updateBusinessStatus = async (req, res, next) => {
+  try {
+    const Business = require('../models/Business');
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const allowedStatuses = ['active', 'suspended', 'cancelled', 'pending'];
+    if (!allowedStatuses.includes(status)) {
+      return sendError(res, 400, `Status must be one of: ${allowedStatuses.join(', ')}`);
+    }
+
+    const business = await Business.findByIdAndUpdate(
+      id,
+      { status, isActive: status === 'active' },
+      { new: true, runValidators: true }
+    ).populate('ownerId', 'name email');
+
+    if (!business) {
+      return sendError(res, 404, 'Business not found');
+    }
+
+    logger.info(`Business ${business.name} status updated to ${status} by superadmin ${req.user.email}`);
+
+    return sendSuccess(res, 200, `Business ${status === 'active' ? 'approved' : 'updated'} successfully`, business);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ── GET /api/admin/businesses ────────────────────
+/**
+ * List all businesses with filters (superadmin only).
+ */
+exports.listBusinesses = async (req, res, next) => {
+  try {
+    const Business = require('../models/Business');
+    const { status, page = 1, limit = 20 } = req.query;
+    const filter = status ? { status } : {};
+
+    const [businesses, total] = await Promise.all([
+      Business.find(filter)
+        .populate('ownerId', 'name email')
+        .select('name slug email category status isActive createdAt city country plan')
+        .sort({ createdAt: -1 })
+        .skip((page - 1) * limit)
+        .limit(parseInt(limit)),
+      Business.countDocuments(filter),
+    ]);
+
+    return sendSuccess(res, 200, 'Businesses retrieved', businesses, {
       page: parseInt(page), limit: parseInt(limit), total, pages: Math.ceil(total / limit),
     });
   } catch (error) {

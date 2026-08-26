@@ -8,13 +8,13 @@ const router = express.Router();
 const {
   createQueue, listQueues, getQueue, updateQueue, deleteQueue,
 } = require('../controllers/queueController');
-const { protect, adminOnly } = require('../middleware/auth');
+const { protect, adminOnly, optionalAuth } = require('../middleware/auth');
 const { requireBusiness, resolveBusinessFromSlug } = require('../middleware/tenantMiddleware');
 const validate = require('../middleware/validate');
 
 // Public: list and get queues
-router.get('/list', resolveBusinessFromSlug, listQueues);
-router.get('/:id', [param('id').isMongoId().withMessage('Invalid queue ID')], validate, getQueue);
+router.get('/list', optionalAuth, resolveBusinessFromSlug, listQueues);
+router.get('/:id', optionalAuth, [param('id').isMongoId().withMessage('Invalid queue ID')], validate, getQueue);
 
 // Admin: create, update, delete
 router.post(

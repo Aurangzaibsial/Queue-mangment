@@ -20,7 +20,7 @@ export default function Navigation() {
           <Link to="/" style={{ textDecoration: 'none', display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ background: "#0F172A", borderRadius: 12, width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🧠</div>
             <div>
-              <div style={{ fontWeight: 700, fontSize: 17, color: "#0F172A" }}>QueueFlow <span style={{ fontWeight: 300, color: "#94A3B8" }}>AI</span></div>
+              <div style={{ fontWeight: 700, fontSize: 17, color: "#0F172A" }}>Naubex</div>
               {business && <div style={{ fontSize: 11, color: "#10B981", fontWeight: 600 }}>{business.name}</div>}
             </div>
           </Link>
@@ -37,13 +37,14 @@ export default function Navigation() {
 
           {isPlatformAdmin(user.role) && (
             <div style={{ display: "flex", gap: 16, marginLeft: 24 }}>
-              <Link to="/dashboard" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Platform Dashboard</Link>
+              <Link to="/superadmin" style={{ textDecoration: 'none', color: "#7C3AED", fontWeight: 600, fontSize: 14 }}>🛡️ Admin Console</Link>
+              <Link to="/businesses" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Browse Businesses</Link>
             </div>
           )}
 
           {isCustomer(user.role) && (
             <div style={{ display: "flex", gap: 16, marginLeft: 24 }}>
-              <Link to="/" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Home</Link>
+              <Link to="/businesses" style={{ textDecoration: 'none', color: "#64748B", fontWeight: 500, fontSize: 14 }}>Browse Businesses</Link>
             </div>
           )}
         </div>

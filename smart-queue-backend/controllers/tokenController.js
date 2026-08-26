@@ -12,7 +12,33 @@ const Queue = require('../models/Queue');
 const ServiceCounter = require('../models/ServiceCounter');
 const { sendSuccess, sendError } = require('../utils/apiResponse');
 const { predictWaitTime, recalculateQueueWaitTimes } = require('../services/aiPredictionService');
+const aiService = require('../services/aiService');
 const logger = require('../utils/logger');
+
+const getQueueEstimate = async (queue, tokenId = null) => {
+  const [peopleAhead, servingCount, activeCounters] = await Promise.all([
+    Token.countDocuments({
+      queueId: queue._id,
+      status: 'waiting',
+      ...(tokenId ? { _id: { $ne: tokenId } } : {}),
+    }),
+    Token.countDocuments({ queueId: queue._id, status: 'serving' }),
+    ServiceCounter.find({ businessId: queue.businessId, status: 'active' }).select('averageServiceTime'),
+  ]);
+
+  const avgServiceTime = activeCounters.length > 0
+    ? activeCounters.reduce((total, counter) => total + counter.averageServiceTime, 0) / activeCounters.length
+    : (queue.estimatedServiceTime || queue.estimatedWaitTimePerPerson || 5);
+  const counters = Math.max(activeCounters.length, 1);
+  const estimatedWaitTime = Math.max(0, parseFloat(((peopleAhead + servingCount) * avgServiceTime / counters).toFixed(1)));
+
+  return {
+    peopleAhead: peopleAhead + servingCount,
+    avgServiceTime: parseFloat(avgServiceTime.toFixed(1)),
+    estimatedWaitTime,
+    estimatedTurnAt: new Date(Date.now() + estimatedWaitTime * 60000),
+  };
+};
 
 /**
  * Generate a human-readable token number.
@@ -46,16 +72,6 @@ exports.bookToken = async (req, res, next) => {
       return sendError(res, 409, `Queue is at full capacity (${queue.maxCapacity}). Please try later.`);
     }
 
-    // Prevent duplicate active tokens for same user in same queue
-    const existing = await Token.findOne({
-      userId: req.user._id,
-      queueId,
-      status: { $in: ['waiting', 'serving'] },
-    });
-    if (existing) {
-      return sendError(res, 409, `You already have an active token (${existing.tokenNumber}) in this queue.`);
-    }
-
     // Determine position (VIP/emergency jump ahead of normals)
     let position;
     if (priority === 'emergency') {
@@ -77,15 +93,43 @@ exports.bookToken = async (req, res, next) => {
     // Generate token number
     const tokenNumber = await generateTokenNumber(queueId, queue.category);
 
-    // Get AI-predicted wait time
+    // Get AI-predicted wait time (try Python AI service first, fallback to local)
     const activeCounters = await ServiceCounter.countDocuments({ status: 'active' });
-    const estimatedWaitTime = await predictWaitTime({
-      queueId,
-      tokenId: null,
-      category: queue.category,
-      priority,
-      activeCounters: Math.max(activeCounters, 1),
-    });
+    let estimatedWaitTime;
+    let aiSource = 'local';
+    let aiConfidence = 0.5;
+    
+    try {
+      // Try Python AI service
+      const aiPrediction = await aiService.predictWaitTime(
+        queueId,
+        null,
+        queue.category,
+        priority,
+        Math.max(activeCounters, 1)
+      );
+      estimatedWaitTime = aiPrediction.estimated_wait_minutes || 
+        await predictWaitTime({
+          queueId,
+          tokenId: null,
+          category: queue.category,
+          priority,
+          activeCounters: Math.max(activeCounters, 1),
+        });
+      aiSource = 'ai';
+      aiConfidence = aiPrediction.confidence_score || 0.7;
+    } catch (error) {
+      // Fallback to local prediction
+      estimatedWaitTime = await predictWaitTime({
+        queueId,
+        tokenId: null,
+        category: queue.category,
+        priority,
+        activeCounters: Math.max(activeCounters, 1),
+      });
+      aiSource = 'local';
+      aiConfidence = 0.5;
+    }
 
     // Create token
     const token = await Token.create({
@@ -102,7 +146,10 @@ exports.bookToken = async (req, res, next) => {
     });
 
     await token.populate('userId', 'name email');
-    await token.populate('queueId', 'serviceName category');
+    await token.populate('queueId', 'serviceName category serviceFee estimatedServiceTime');
+    await token.populate('businessId', 'name slug logo category city address phone pricing primaryColor accentColor');
+
+    const queueEstimate = await getQueueEstimate(queue, token._id);
 
     // Increment queue counter
     await Queue.findByIdAndUpdate(queueId, { $inc: { queueNumber: 1 } });
@@ -123,6 +170,12 @@ exports.bookToken = async (req, res, next) => {
       message: `Your turn is in approximately ${Math.round(estimatedWaitTime)} minutes`,
       position,
       estimatedWaitTime,
+      aiPowered: aiSource === 'ai',
+      aiConfidence,
+      aiSource,
+      peopleAhead: queueEstimate.peopleAhead,
+      avgServiceTime: queueEstimate.avgServiceTime,
+      estimatedTurnAt: queueEstimate.estimatedTurnAt,
     });
   } catch (error) {
     next(error);
@@ -137,7 +190,8 @@ exports.getToken = async (req, res, next) => {
   try {
     const token = await Token.findById(req.params.id)
       .populate('userId', 'name email')
-      .populate('queueId', 'serviceName category status')
+      .populate('queueId', 'serviceName category status serviceFee estimatedServiceTime')
+      .populate('businessId', 'name slug logo category city address phone pricing primaryColor accentColor')
       .populate('assignedCounter', 'counterName counterNumber');
 
     if (!token) return sendError(res, 404, 'Token not found.');
@@ -208,7 +262,8 @@ exports.getUserTokens = async (req, res, next) => {
 
     const [tokens, total] = await Promise.all([
       Token.find(filter)
-        .populate('queueId', 'serviceName category')
+        .populate('businessId', 'name slug logo category city address phone pricing primaryColor accentColor')
+        .populate('queueId', 'serviceName category serviceFee estimatedServiceTime')
         .populate('assignedCounter', 'counterName')
         .sort({ createdAt: -1 })
         .skip(skip)
@@ -216,7 +271,15 @@ exports.getUserTokens = async (req, res, next) => {
       Token.countDocuments(filter),
     ]);
 
-    return sendSuccess(res, 200, 'Tokens retrieved', tokens, {
+    const enrichedTokens = await Promise.all(tokens.map(async (token) => {
+      if (token.status !== 'waiting') return token;
+      const queue = await Queue.findById(token.queueId).select('businessId estimatedServiceTime estimatedWaitTimePerPerson');
+      if (!queue) return token;
+      const estimate = await getQueueEstimate(queue, token._id);
+      return { ...token.toObject(), ...estimate };
+    }));
+
+    return sendSuccess(res, 200, 'Tokens retrieved', enrichedTokens, {
       page: parseInt(page),
       limit: parseInt(limit),
       total,

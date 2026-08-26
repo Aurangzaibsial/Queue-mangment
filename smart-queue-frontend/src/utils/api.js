@@ -28,7 +28,7 @@ const discoverBackend = async () => {
         
         if (res.ok) {
           const data = await res.json();
-          if (data && data.success && data.message && data.message.includes("Smart Queue")) {
+          if (data && data.success && data.message && data.message.includes("Naubex")) {
             API_BASE = `http://localhost:${port}/api`;
             SOCKET_URL = `http://localhost:${port}`;
             console.log(`[Backend Discovery] Found backend running on port ${port}`);
@@ -82,6 +82,7 @@ const api = {
   get:    (p)    => api.req("GET", p),
   post:   (p, b) => api.req("POST", p, b),
   put:    (p, b) => api.req("PUT", p, b),
+  patch:  (p, b) => api.req("PATCH", p, b),
   del:    (p)    => api.req("DELETE", p),
 };
 

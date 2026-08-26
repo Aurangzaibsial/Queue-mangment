@@ -104,7 +104,7 @@ function QueueCard({ queue, counters, onCallNext, callingNext }) {
 }
 
 // ── Token List ────────────────────────────────────
-function TokenList({ tokens, title }) {
+function TokenList({ tokens, title, onMarkServed, markingToken, onDraftNotification, draftingToken }) {
   if (!tokens || tokens.length === 0) return null;
 
   const statusStyles = {
@@ -146,9 +146,34 @@ function TokenList({ tokens, title }) {
                   </div>
                 </div>
               </div>
-              <span style={{ background: st.bg, color: st.color, padding: '4px 12px', borderRadius: 999, fontSize: 11, fontWeight: 600 }}>
-                {token.status}
-              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                {token.status === 'waiting' && onMarkServed && (
+                  <button
+                    onClick={() => onMarkServed(token._id)}
+                    disabled={markingToken === token._id}
+                    style={{
+                      border: '1px solid #A7F3D0',
+                      borderRadius: 8,
+                      padding: '5px 9px',
+                      background: '#ECFDF5',
+                      color: '#059669',
+                      fontSize: 11,
+                      fontWeight: 600,
+                      cursor: markingToken === token._id ? 'wait' : 'pointer',
+                    }}
+                  >
+                    {markingToken === token._id ? 'Saving...' : 'Mark served'}
+                  </button>
+                )}
+                {onDraftNotification && (
+                  <button onClick={() => onDraftNotification(token)} disabled={draftingToken === token._id} style={{ border: '1px solid #CBD5E1', borderRadius: 8, padding: '5px 9px', background: 'white', color: '#475569', fontSize: 11, fontWeight: 600, cursor: 'pointer' }}>
+                    {draftingToken === token._id ? '...' : 'Draft message'}
+                  </button>
+                )}
+                <span style={{ background: st.bg, color: st.color, padding: '4px 12px', borderRadius: 999, fontSize: 11, fontWeight: 600 }}>
+                  {token.status}
+                </span>
+              </div>
             </div>
           );
         })}
@@ -167,7 +192,13 @@ export default function Dashboard() {
   const [tokens, setTokens] = useState([]);
   const [analytics, setAnalytics] = useState(null);
   const [callingNext, setCallingNext] = useState(false);
+  const [markingToken, setMarkingToken] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [aiSummary, setAiSummary] = useState('');
+  const [aiLoading, setAiLoading] = useState(false);
+  const [queueExplanation, setQueueExplanation] = useState('');
+  const [notificationDraft, setNotificationDraft] = useState('');
+  const [draftingToken, setDraftingToken] = useState(null);
 
   const fetchData = useCallback(async () => {
     try {
@@ -186,7 +217,7 @@ export default function Dashboard() {
       for (const q of fetchedQueues) {
         try {
           const tRes = await api.get(`/queues/${q._id}`);
-          const queueTokens = tRes.data?.tokens || tRes.data?.queue?.tokens || [];
+          const queueTokens = tRes.data?.waitingTokens || tRes.data?.tokens || tRes.data?.queue?.tokens || [];
           allTokens.push(...queueTokens);
         } catch (_) {
           // Queue may not have tokens endpoint — skip
@@ -228,6 +259,55 @@ export default function Dashboard() {
       alert(err.message || 'Failed to call next');
     } finally {
       setCallingNext(false);
+    }
+  };
+
+  const handleMarkServed = async (tokenId) => {
+    setMarkingToken(tokenId);
+    try {
+      await api.post('/admin/mark-served', { tokenId });
+      await fetchData();
+    } catch (err) {
+      alert(err.message || 'Failed to mark token served');
+    } finally {
+      setMarkingToken(null);
+    }
+  };
+
+  const generateSummary = async () => {
+    setAiLoading(true);
+    try {
+      const res = await api.post('/ai/owner-summary');
+      setAiSummary(res.data?.text || res.text || 'No summary available.');
+    } catch (err) {
+      setAiSummary(err.message || 'AI summary unavailable.');
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
+  const explainQueue = async (queueId) => {
+    try {
+      const res = await api.post('/ai/queue-explanation', { queueId });
+      setQueueExplanation(res.data?.text || res.text || 'No explanation available.');
+    } catch (err) {
+      setQueueExplanation(err.message || 'Queue explanation unavailable.');
+    }
+  };
+
+  const draftNotification = async (token) => {
+    setDraftingToken(token._id);
+    try {
+      const res = await api.post('/ai/notification-draft', {
+        tokenNumber: token.tokenNumber,
+        serviceName: token.queueId?.serviceName,
+        status: token.status,
+      });
+      setNotificationDraft(res.data?.text || res.text || 'No draft available.');
+    } catch (err) {
+      setNotificationDraft(err.message || 'Notification draft unavailable.');
+    } finally {
+      setDraftingToken(null);
     }
   };
 
@@ -274,17 +354,29 @@ export default function Dashboard() {
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {queues.map(q => (
-              <QueueCard key={q._id} queue={q} counters={counters} onCallNext={handleCallNext} callingNext={callingNext} />
+              <div key={q._id}>
+                <QueueCard queue={q} counters={counters} onCallNext={handleCallNext} callingNext={callingNext} />
+                <button onClick={() => explainQueue(q._id)} style={{ marginTop: 8, background: '#EFF6FF', color: '#2563EB', border: '1px solid #BFDBFE', borderRadius: 9, padding: '7px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>Explain queue status</button>
+              </div>
             ))}
           </div>
         )}
       </div>
 
+      <div style={{ background: 'white', borderRadius: 20, padding: 24, border: '1px solid #E2E8F0', marginBottom: 24 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+          <h3 style={{ fontSize: 16, fontWeight: 700, color: '#0F172A', margin: 0 }}>AI Operations Insight</h3>
+          <button onClick={generateSummary} disabled={aiLoading} style={{ background: '#0F172A', color: 'white', border: 'none', borderRadius: 9, padding: '8px 13px', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>{aiLoading ? 'Generating...' : 'Generate insight'}</button>
+        </div>
+        {(aiSummary || queueExplanation) && <p style={{ color: '#475569', fontSize: 14, lineHeight: 1.55, whiteSpace: 'pre-line', margin: '14px 0 0' }}>{aiSummary || queueExplanation}</p>}
+      </div>
+
       {/* Active Tokens */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 16 }}>
-        <TokenList tokens={tokens.filter(t => t.status === 'waiting')} title="🟡 Waiting Tokens" />
-        <TokenList tokens={tokens.filter(t => t.status === 'serving')} title="🟢 Currently Serving" />
+        <TokenList tokens={tokens.filter(t => t.status === 'waiting')} title="🟡 Waiting Tokens" onMarkServed={handleMarkServed} markingToken={markingToken} onDraftNotification={draftNotification} draftingToken={draftingToken} />
+        <TokenList tokens={tokens.filter(t => t.status === 'serving')} title="🟢 Currently Serving" onDraftNotification={draftNotification} draftingToken={draftingToken} />
       </div>
+      {notificationDraft && <div style={{ background: '#FFFBEB', border: '1px solid #FDE68A', borderRadius: 14, padding: 16, marginTop: 16, color: '#92400E', fontSize: 14 }}>{notificationDraft}</div>}
 
       {/* Peak Hours (simple bar chart) */}
       {analytics?.peakHours && (

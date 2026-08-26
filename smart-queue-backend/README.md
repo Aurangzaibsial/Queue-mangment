@@ -1,4 +1,4 @@
-# 🧠 Smart Queue Management System — Backend
+# 🧠 Naubex — Backend
 
 A production-ready MERN backend with AI-powered wait time prediction and real-time Socket.io updates.
 

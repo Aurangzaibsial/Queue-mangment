@@ -91,6 +91,14 @@ const BusinessSchema = new mongoose.Schema(
     language: { type: String, default: 'en' },
     autoCloseQueues: { type: Boolean, default: false },
 
+    // ── AI SETTINGS ───────────────────────────
+    aiSettings: {
+      enableNoshowPrediction: { type: Boolean, default: true },
+      enableDemandForecasting: { type: Boolean, default: true },
+      enableCapacityOptimization: { type: Boolean, default: true },
+      personalizationWeight: { type: Number, default: 0.3, min: 0.3, max: 0.5 },
+    },
+
     // ── SUBSCRIPTION ──────────────────────────
     plan: {
       type: String,
@@ -108,6 +116,24 @@ const BusinessSchema = new mongoose.Schema(
       type: String,
       enum: ['restaurant', 'clinic', 'salon', 'bank', 'government', 'retail', 'education', 'fitness', 'other'],
       default: 'other',
+    },
+
+    // ── RATING ────────────────────────────────
+    rating: {
+      average: { type: Number, default: 0, min: 0, max: 5 },
+      count:   { type: Number, default: 0, min: 0 },
+    },
+
+    // ── PRICING ───────────────────────────────
+    pricing: {
+      baseRate:   { type: Number, default: 0, min: 0 },
+      hourlyRate: { type: Number, default: 0, min: 0 },
+      priceTier:  {
+        type: String,
+        enum: ['budget', 'standard', 'premium', 'luxury'],
+        default: 'standard',
+      },
+      currency: { type: String, default: 'USD', trim: true },
     },
 
     // ── CUSTOM FIELDS ─────────────────────────
@@ -130,10 +156,10 @@ const BusinessSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: {
-        values: ['active', 'suspended', 'cancelled'],
-        message: 'Status must be active, suspended, or cancelled',
+        values: ['pending', 'active', 'suspended', 'cancelled'],
+        message: 'Status must be pending, active, suspended, or cancelled',
       },
-      default: 'active',
+      default: 'pending',
     },
     isActive: {
       type: Boolean,

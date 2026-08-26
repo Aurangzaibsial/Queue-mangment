@@ -124,7 +124,7 @@ export default function AuthPage() {
           <Link to="/" style={styles.logoLink}>
             <div style={styles.logoIcon}>🧠</div>
             <span style={styles.logoText}>
-              QueueFlow <span style={{ fontWeight: 300, opacity: 0.7 }}>AI</span>
+              Naubex
             </span>
           </Link>
 

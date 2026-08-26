@@ -1,17 +1,51 @@
-/**
- * controllers/queueController.js
- * ─────────────────────────────────────────────
- * Queue management controller.
- * CRUD operations for service queues.
- * ─────────────────────────────────────────────
- */
-
 const Queue = require('../models/Queue');
+const Business = require('../models/Business');
 const Token = require('../models/Token');
 const ServiceCounter = require('../models/ServiceCounter');
 const { sendSuccess, sendError, sendPaginated } = require('../utils/apiResponse');
 const { recalculateQueueWaitTimes } = require('../services/aiPredictionService');
+const aiService = require('../services/aiService');
 const logger = require('../utils/logger');
+
+const getDefaultQueuesForCategory = (category, baseRate = 0) => {
+  switch (category) {
+    case 'clinic':
+      return [
+        { serviceName: 'General Consultation', category: 'General', estimatedServiceTime: 12, serviceFee: baseRate || 30, description: 'Routine checkups, vitals and primary doctor consult' },
+        { serviceName: 'Express Triage & Diagnostics', category: 'Emergency', estimatedServiceTime: 6, serviceFee: (baseRate || 30) + 15, description: 'Urgent care triage, blood work and rapid tests' },
+      ];
+    case 'salon':
+      return [
+        { serviceName: 'Haircut & Styling Desk', category: 'General', estimatedServiceTime: 20, serviceFee: baseRate || 25, description: 'Custom hair styling, trimming, wash and blowdry' },
+        { serviceName: 'VIP Treatment & Color Lounge', category: 'VIP', estimatedServiceTime: 35, serviceFee: (baseRate || 25) + 30, description: 'Keratin hair therapy, facial and premium styling' },
+      ];
+    case 'retail':
+      return [
+        { serviceName: 'Express Checkout Counter', category: 'General', estimatedServiceTime: 5, serviceFee: 0, description: 'Fast 1-10 items billing queue' },
+        { serviceName: 'Customer Support & Returns', category: 'Support', estimatedServiceTime: 8, serviceFee: 0, description: 'Order pickups, refunds and product support' },
+      ];
+    case 'restaurant':
+      return [
+        { serviceName: 'Dine-In Table Reservation Queue', category: 'General', estimatedServiceTime: 15, serviceFee: baseRate || 0, description: 'Host desk queue for table seating' },
+        { serviceName: 'Express Takeout & Delivery Desk', category: 'General', estimatedServiceTime: 5, serviceFee: 0, description: 'Quick pickup for takeaway orders' },
+      ];
+    case 'bank':
+      return [
+        { serviceName: 'Cashier & Deposit Counter', category: 'Billing', estimatedServiceTime: 8, serviceFee: 0, description: 'Cash deposits, withdrawals, utility payments' },
+        { serviceName: 'Personal Banker & Accounts', category: 'Technical', estimatedServiceTime: 18, serviceFee: 0, description: 'Account opening, loans, cards and wealth management' },
+      ];
+    case 'fitness':
+      return [
+        { serviceName: 'Gym Floor & Workout Check-In', category: 'General', estimatedServiceTime: 5, serviceFee: baseRate || 15, description: 'Access verification and locker assignment' },
+        { serviceName: 'Personal Trainer Consultation', category: 'VIP', estimatedServiceTime: 25, serviceFee: (baseRate || 15) + 35, description: 'Body composition analysis & private coaching' },
+      ];
+    default:
+      return [
+        { serviceName: 'General Service Desk', category: 'General', estimatedServiceTime: 10, serviceFee: baseRate || 0, description: 'Primary customer service and inquiry queue' },
+        { serviceName: 'Express Counter', category: 'Support', estimatedServiceTime: 5, serviceFee: baseRate || 0, description: 'Quick consultations and document processing' },
+      ];
+  }
+};
 
 // ── POST /api/queue/create ───────────────────────
 /**
@@ -59,15 +93,44 @@ exports.listQueues = async (req, res, next) => {
     if (status) filter.status = status;
     if (category) filter.category = category;
 
-    const [queues, total] = await Promise.all([
+    let [queues, total] = await Promise.all([
       Queue.find(filter)
         .populate('managedBy', 'name email')
-        .populate('currentLength') // Virtual populated token count
+        .populate('currentLength')
         .skip(skip)
         .limit(parseInt(limit))
         .sort({ createdAt: -1 }),
       Queue.countDocuments(filter),
     ]);
+
+    // If this business has no queues at all, auto-provision default queues for its category
+    if (total === 0 && !status && !category) {
+      const biz = await Business.findById(req.businessId);
+      if (biz) {
+        const defaultQueues = getDefaultQueuesForCategory(biz.category, biz.pricing?.baseRate || 0);
+        for (const dq of defaultQueues) {
+          await Queue.create({
+            businessId: biz._id,
+            serviceName: dq.serviceName,
+            category: dq.category,
+            estimatedServiceTime: dq.estimatedServiceTime,
+            serviceFee: dq.serviceFee,
+            description: dq.description,
+            managedBy: biz.ownerId,
+            status: 'active',
+            isActive: true,
+          });
+        }
+
+        queues = await Queue.find(filter)
+          .populate('managedBy', 'name email')
+          .populate('currentLength')
+          .skip(skip)
+          .limit(parseInt(limit))
+          .sort({ createdAt: -1 });
+        total = await Queue.countDocuments(filter);
+      }
+    }
 
     // Enrich each queue with live token count and active counters
     const enriched = await Promise.all(
@@ -76,10 +139,34 @@ exports.listQueues = async (req, res, next) => {
           Token.countDocuments({ queueId: q._id, status: 'waiting' }),
           ServiceCounter.countDocuments({ status: 'active', assignedQueue: q._id }),
         ]);
+
+        // Get AI-powered wait time prediction for this queue
+        let aiWaitTime = null;
+        let aiSource = 'local';
+        try {
+          const aiPrediction = await aiService.predictWaitTime(
+            q._id.toString(),
+            null,
+            q.category,
+            'normal',
+            Math.max(activeCounters, 1)
+          );
+          aiWaitTime = aiPrediction.estimated_wait_minutes;
+          aiSource = 'ai';
+        } catch (error) {
+          // Use local estimate if AI fails
+          const perPersonTime = q.estimatedServiceTime || q.estimatedWaitTimePerPerson || 5;
+          aiWaitTime = perPersonTime * Math.max(waitingCount, 1);
+          aiSource = 'local';
+        }
+
         return {
           ...q.toObject(),
           waitingCount,
           activeCounters,
+          estimatedWaitTime: aiWaitTime,
+          aiPowered: aiSource === 'ai',
+          aiSource,
         };
       })
     );
@@ -96,7 +183,12 @@ exports.listQueues = async (req, res, next) => {
  */
 exports.getQueue = async (req, res, next) => {
   try {
-    const queue = await Queue.findById(req.params.id)
+    const queueFilter = { _id: req.params.id };
+    if (req.user && ['admin', 'owner'].includes(req.user.role)) {
+      queueFilter.businessId = req.user.businessId;
+    }
+
+    const queue = await Queue.findOne(queueFilter)
       .populate('managedBy', 'name email');
 
     if (!queue) {

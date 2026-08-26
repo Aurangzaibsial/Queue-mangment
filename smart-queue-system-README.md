@@ -1,4 +1,4 @@
-# 🧠 Smart Queue Management System
+# 🧠 Naubex
 ### Full-Stack MERN App · AI Predictions · Real-Time Socket.io
 
 ---

@@ -75,6 +75,17 @@ const QueueSchema = new mongoose.Schema(
       avgActualServiceTime: { type: Number, default: 0 }, // Updated by AI engine
       peakHour: { type: Number, default: null }, // 0-23
     },
+    // ── SERVICE FEE ───────────────────────────
+    serviceFee: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    // ── RATING ────────────────────────────────
+    rating: {
+      average: { type: Number, default: 0, min: 0, max: 5 },
+      count:   { type: Number, default: 0, min: 0 },
+    },
     isActive: {
       type: Boolean,
       default: true,

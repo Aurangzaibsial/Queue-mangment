@@ -57,8 +57,8 @@ export const getPostAuthRedirect = (user, business, redirectTo) => {
 
   if (!user) return '/';
 
-  if (isPlatformAdmin(user.role)) return '/dashboard';
-  if (isCustomer(user.role)) return '/';
+  if (isPlatformAdmin(user.role)) return '/superadmin';
+  if (isCustomer(user.role)) return '/businesses';
   if (isBusinessUser(user.role)) return business ? '/dashboard' : '/settings';
 
   return '/';

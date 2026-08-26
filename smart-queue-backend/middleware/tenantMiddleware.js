@@ -72,11 +72,24 @@ const requireBusiness = async (req, res, next) => {
  */
 const resolveBusinessFromSlug = async (req, res, next) => {
   try {
-    const slug = req.params.slug || req.query.slug || 'default';
-    let business = await Business.findOne({ slug, isActive: true, status: 'active' });
+    // Business operators always stay within their own tenant, even if a public
+    // slug or businessId is included in the request.
+    const businessId = req.user && ['admin', 'owner'].includes(req.user.role)
+      ? req.user.businessId
+      : req.params.businessId || req.query.businessId;
+    const slug = req.params.slug || req.query.slug;
+
+    let business = null;
+    if (businessId) {
+      business = await Business.findOne({ _id: businessId, isActive: true, status: 'active' });
+    } else if (slug) {
+      business = await Business.findOne({ slug, isActive: true, status: 'active' });
+    } else {
+      business = await Business.findOne({ slug: 'default', isActive: true, status: 'active' });
+    }
     
     // Backward compatibility fallback
-    if (!business && slug === 'default') {
+    if (!business && (!slug || slug === 'default') && !businessId) {
       business = await getDefaultBusiness();
     }
 
