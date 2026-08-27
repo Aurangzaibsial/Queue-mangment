@@ -34,6 +34,7 @@ const aiAnalyticsRoutes = require('./routes/aiAnalyticsRoutes');
 
 // ── Socket.io handler ────────────────────────────
 const initSocket = require('./sockets/queueSocket');
+const { startWhatsAppReminderWorker } = require('./services/whatsappReminderWorker');
 
 // ─────────────────────────────────────────────────
 // APP SETUP
@@ -175,6 +176,7 @@ const PORT = process.env.PORT || 5000;
 const startServer = async () => {
   // Connect to MongoDB first
   await connectDB();
+  startWhatsAppReminderWorker();
 
   let currentPort = parseInt(PORT, 10);
 

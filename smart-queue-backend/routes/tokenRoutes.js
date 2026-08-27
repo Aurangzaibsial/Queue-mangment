@@ -18,6 +18,8 @@ router.post(
     body('priority').optional().isIn(['normal', 'vip', 'emergency']).withMessage('Invalid priority'),
     body('notes').optional().isLength({ max: 500 }).withMessage('Notes too long'),
     body('customerName').optional().trim().isLength({ max: 60 }),
+    body('whatsappNumber').optional().trim().matches(/^\+[1-9]\d{7,14}$/).withMessage('WhatsApp number must use international format, e.g. +923001234567'),
+    body('whatsappOptIn').optional().isBoolean().withMessage('WhatsApp consent must be true or false'),
   ],
   validate,
   bookToken

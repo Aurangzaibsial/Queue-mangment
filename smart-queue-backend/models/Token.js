@@ -98,6 +98,27 @@ const TokenSchema = new mongoose.Schema(
       trim: true,
       maxlength: 500,
     },
+    whatsappNumber: {
+      type: String,
+      trim: true,
+      maxlength: 20,
+    },
+    whatsappOptIn: {
+      type: Boolean,
+      default: false,
+    },
+    estimatedTurnAt: {
+      type: Date,
+      default: null,
+    },
+    whatsappConfirmationSentAt: {
+      type: Date,
+      default: null,
+    },
+    whatsappReminderSentAt: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true, // createdAt = time customer joined queue

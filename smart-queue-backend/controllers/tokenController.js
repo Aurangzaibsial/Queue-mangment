@@ -14,6 +14,7 @@ const { sendSuccess, sendError } = require('../utils/apiResponse');
 const { predictWaitTime, recalculateQueueWaitTimes } = require('../services/aiPredictionService');
 const aiService = require('../services/aiService');
 const logger = require('../utils/logger');
+const { sendBookingConfirmation } = require('../services/whatsappService');
 
 const getQueueEstimate = async (queue, tokenId = null) => {
   const [peopleAhead, servingCount, activeCounters] = await Promise.all([
@@ -58,7 +59,7 @@ const generateTokenNumber = async (queueId, category) => {
  */
 exports.bookToken = async (req, res, next) => {
   try {
-    const { queueId, priority = 'normal', notes, customerName } = req.body;
+    const { queueId, priority = 'normal', notes, customerName, whatsappNumber, whatsappOptIn = false } = req.body;
 
     // Validate queue exists and is active
     const queue = await Queue.findOne({ _id: queueId, isActive: true, status: 'active' });
@@ -131,6 +132,8 @@ exports.bookToken = async (req, res, next) => {
       aiConfidence = 0.5;
     }
 
+    const queueEstimate = await getQueueEstimate(queue, null);
+
     // Create token
     const token = await Token.create({
       businessId: queue.businessId,
@@ -140,6 +143,9 @@ exports.bookToken = async (req, res, next) => {
       position,
       priority,
       estimatedWaitTime,
+      estimatedTurnAt: queueEstimate.estimatedTurnAt,
+      whatsappNumber: whatsappOptIn ? whatsappNumber : undefined,
+      whatsappOptIn: Boolean(whatsappOptIn && whatsappNumber),
       category: queue.category,
       customerName: customerName || req.user.name,
       notes,
@@ -149,7 +155,13 @@ exports.bookToken = async (req, res, next) => {
     await token.populate('queueId', 'serviceName category serviceFee estimatedServiceTime');
     await token.populate('businessId', 'name slug logo category city address phone pricing primaryColor accentColor');
 
-    const queueEstimate = await getQueueEstimate(queue, token._id);
+    if (token.whatsappOptIn) {
+      sendBookingConfirmation(token)
+        .then(async (sent) => {
+          if (sent) await Token.findByIdAndUpdate(token._id, { whatsappConfirmationSentAt: new Date() });
+        })
+        .catch((error) => logger.error(`WhatsApp confirmation failed for token ${token.tokenNumber}: ${error.message}`));
+    }
 
     // Increment queue counter
     await Queue.findByIdAndUpdate(queueId, { $inc: { queueNumber: 1 } });

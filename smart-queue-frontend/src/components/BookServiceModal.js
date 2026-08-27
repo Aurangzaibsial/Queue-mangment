@@ -68,6 +68,8 @@ export default function BookServiceModal({ business, isOpen, onClose, onBookingS
   const [priority, setPriority] = useState('normal');
   const [customerName, setCustomerName] = useState(user?.name || '');
   const [notes, setNotes] = useState('');
+  const [whatsappNumber, setWhatsappNumber] = useState(user?.phone || '');
+  const [whatsappOptIn, setWhatsappOptIn] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [bookedPass, setBookedPass] = useState(null);
@@ -80,6 +82,8 @@ export default function BookServiceModal({ business, isOpen, onClose, onBookingS
     setError('');
     setLoadingQueues(true);
     setCustomerName(user?.name || '');
+    setWhatsappNumber(user?.phone || '');
+    setWhatsappOptIn(false);
 
     const fetchQueues = async () => {
       try {
@@ -116,6 +120,11 @@ export default function BookServiceModal({ business, isOpen, onClose, onBookingS
       return;
     }
 
+    if (whatsappOptIn && !/^\+[1-9]\d{7,14}$/.test(whatsappNumber.trim())) {
+      setError('Enter your WhatsApp number in international format, e.g. +923001234567.');
+      return;
+    }
+
     setSubmitting(true);
     setError('');
 
@@ -125,6 +134,8 @@ export default function BookServiceModal({ business, isOpen, onClose, onBookingS
         priority,
         customerName: customerName || user.name,
         notes,
+        whatsappNumber: whatsappOptIn ? whatsappNumber.trim() : undefined,
+        whatsappOptIn,
       });
 
       const tokenData = res.data?.token || res.data;
@@ -627,10 +638,38 @@ export default function BookServiceModal({ business, isOpen, onClose, onBookingS
                 </div>
               </div>
 
+              {/* WhatsApp Notifications */}
+              <div style={{ marginBottom: 18, padding: 14, background: '#F0FDF4', border: '1px solid #BBF7D0', borderRadius: 12 }}>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={whatsappOptIn}
+                    onChange={e => setWhatsappOptIn(e.target.checked)}
+                    style={{ marginTop: 3, accentColor: '#16A34A' }}
+                  />
+                  <span style={{ fontSize: 13, fontWeight: 700, color: '#166534' }}>
+                    Send booking updates on WhatsApp
+                    <span style={{ display: 'block', fontSize: 11, fontWeight: 400, color: '#4D7C0F', marginTop: 3 }}>
+                      Confirmation now and a reminder about 30 minutes before your estimated turn.
+                    </span>
+                  </span>
+                </label>
+                {whatsappOptIn && (
+                  <input
+                    type="tel"
+                    placeholder="WhatsApp number, e.g. +923001234567"
+                    value={whatsappNumber}
+                    onChange={e => setWhatsappNumber(e.target.value)}
+                    required
+                    style={{ width: '100%', marginTop: 12, padding: '11px 12px', borderRadius: 10, border: '1px solid #86EFAC', fontSize: 13, outline: 'none', boxSizing: 'border-box' }}
+                  />
+                )}
+              </div>
+
               {/* Customer Notes */}
               <div style={{ marginBottom: 22 }}>
                 <label style={{ display: 'block', fontSize: 14, fontWeight: 700, color: '#0F172A', marginBottom: 6 }}>
-                  3. Notes or Reason for Visit <span style={{ fontWeight: 400, color: '#94A3B8' }}>(Optional)</span>
+                  4. Notes or Reason for Visit <span style={{ fontWeight: 400, color: '#94A3B8' }}>(Optional)</span>
                 </label>
                 <input
                   type="text"

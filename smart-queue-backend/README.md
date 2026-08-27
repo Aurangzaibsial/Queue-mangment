@@ -72,6 +72,11 @@ npm start
 | `JWT_EXPIRE` | JWT expiry duration | `7d` |
 | `CORS_ORIGINS` | Comma-separated allowed origins | `http://localhost:3000` |
 | `RATE_LIMIT_MAX` | Max requests per window | `100` |
+| `TWILIO_ACCOUNT_SID` | Twilio account for WhatsApp delivery | — |
+| `TWILIO_AUTH_TOKEN` | Twilio authentication token | — |
+| `TWILIO_WHATSAPP_FROM` | Approved Twilio WhatsApp sender in E.164 format | — |
+
+When a customer opts in during booking, the system sends a WhatsApp confirmation and checks waiting tickets every minute for the 30-minute reminder window. Without the Twilio variables, bookings still work and notifications are logged as skipped.
 
 ---
 
