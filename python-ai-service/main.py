@@ -10,6 +10,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from business_recommendation import router as business_recommendation_router
+from queue_ml_model import model_status
 
 app = FastAPI(
     title="Naubex AI Recommendation Microservice",
@@ -39,6 +40,7 @@ async def health_check():
         "service": "naubex-ai-microservice",
         "gemini_configured": gemini_key,
         "openai_configured": openai_key,
+        "queue_ml_model": model_status(),
         "fallback_scoring_active": True
     }
 

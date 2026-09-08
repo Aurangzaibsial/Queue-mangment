@@ -195,6 +195,7 @@ export default function Dashboard() {
   const [markingToken, setMarkingToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [aiSummary, setAiSummary] = useState('');
+  const [businessActions, setBusinessActions] = useState([]);
   const [aiLoading, setAiLoading] = useState(false);
   const [queueExplanation, setQueueExplanation] = useState('');
   const [notificationDraft, setNotificationDraft] = useState('');
@@ -278,9 +279,16 @@ export default function Dashboard() {
     setAiLoading(true);
     try {
       const res = await api.post('/ai/owner-summary');
-      setAiSummary(res.data?.text || res.text || 'No summary available.');
+      const summaryText = res.data?.text || res.text || 'No summary available.';
+      const nextActions = res.data?.businessActions || [];
+      setAiSummary(summaryText);
+      setBusinessActions(nextActions);
+      if (nextActions.length) {
+        setQueueExplanation((prev) => prev && prev.trim() ? prev : nextActions.map((a, idx) => `${idx + 1}. ${a.title}: ${a.message}`).join('\n'));
+      }
     } catch (err) {
       setAiSummary(err.message || 'AI summary unavailable.');
+      setBusinessActions([]);
     } finally {
       setAiLoading(false);
     }
@@ -368,7 +376,37 @@ export default function Dashboard() {
           <h3 style={{ fontSize: 16, fontWeight: 700, color: '#0F172A', margin: 0 }}>AI Operations Insight</h3>
           <button onClick={generateSummary} disabled={aiLoading} style={{ background: '#0F172A', color: 'white', border: 'none', borderRadius: 9, padding: '8px 13px', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>{aiLoading ? 'Generating...' : 'Generate insight'}</button>
         </div>
-        {(aiSummary || queueExplanation) && <p style={{ color: '#475569', fontSize: 14, lineHeight: 1.55, whiteSpace: 'pre-line', margin: '14px 0 0' }}>{aiSummary || queueExplanation}</p>}
+
+        {businessActions.length > 0 ? (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12, marginTop: 18 }}>
+            {businessActions.map((action, index) => {
+              const tone = {
+                alerting: { bg: '#FEF2F2', border: '#FECACA', color: '#B91C1C' },
+                staffing: { bg: '#EFF6FF', border: '#BFDBFE', color: '#1D4ED8' },
+                'queue-balance': { bg: '#ECFDF5', border: '#A7F3D0', color: '#047857' },
+                'vip-priority': { bg: '#FFF7ED', border: '#FED7AA', color: '#C2410C' },
+                'visit-timing': { bg: '#F5F3FF', border: '#DDD6FE', color: '#6D28D9' },
+              }[action.category] || { bg: '#F8FAFC', border: '#E2E8F0', color: '#334155' };
+
+              return (
+                <div key={`${action.title}-${index}`} style={{ background: tone.bg, border: `1px solid ${tone.border}`, borderRadius: 14, padding: 14 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginBottom: 8 }}>
+                    <span style={{ background: tone.border, color: tone.color, borderRadius: 999, padding: '4px 8px', fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>{action.category || 'operation'}</span>
+                    {action.severity && (
+                      <span style={{ color: tone.color, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>{action.severity}</span>
+                    )}
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: 14, color: '#0F172A', marginBottom: 6 }}>{action.title}</div>
+                  <div style={{ fontSize: 13, lineHeight: 1.5, color: '#334155' }}>{action.message}</div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <>
+            {(aiSummary || queueExplanation) && <p style={{ color: '#475569', fontSize: 14, lineHeight: 1.55, whiteSpace: 'pre-line', margin: '14px 0 0' }}>{aiSummary || queueExplanation}</p>}
+          </>
+        )}
       </div>
 
       {/* Active Tokens */}

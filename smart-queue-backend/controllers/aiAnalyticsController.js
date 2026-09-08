@@ -9,6 +9,7 @@
 const Business = require('../models/Business');
 const Queue = require('../models/Queue');
 const Token = require('../models/Token');
+const ServiceCounter = require('../models/ServiceCounter');
 const aiService = require('../services/aiService');
 const { sendSuccess, sendError } = require('../utils/apiResponse');
 const logger = require('../utils/logger');
@@ -281,23 +282,38 @@ exports.customerAssistant = async (req, res, next) => {
 exports.ownerSummary = async (req, res, next) => {
   try {
     const business = await Business.findById(req.user.businessId).select('name category');
-    const queues = await Queue.find({ businessId: req.user.businessId, isActive: true }).select('serviceName status currentLength estimatedServiceTime analytics');
+    const queues = await Queue.find({ businessId: req.user.businessId, isActive: true }).select('serviceName status currentLength estimatedServiceTime analytics category');
+    const counters = await ServiceCounter.find({ businessId: req.user.businessId, status: { $in: ['active', 'busy'] } }).select('counterName status assignedQueue');
     const tokens = await Token.aggregate([
       { $match: { businessId: req.user.businessId, createdAt: { $gte: new Date(Date.now() - 7 * 86400000) } } },
       { $group: { _id: '$status', count: { $sum: 1 }, avgWait: { $avg: '$actualWaitTime' } } },
     ]);
     const queueSummary = queues.map(queue => `${queue.serviceName}: ${queue.currentLength || 0} waiting, ${queue.estimatedServiceTime || 5} min service time`).join('; ') || 'No active queues';
     const tokenSummary = tokens.map(item => `${item._id}: ${item.count} tickets`).join(', ') || 'No tickets in the last 7 days';
-    const fallback = `1. Monitor ${queueSummary}.\n2. Review service performance from the last 7 days (${tokenSummary}).\n3. Adjust counter coverage when waiting demand increases.`;
+
+    const actions = aiService.generateBusinessActions({
+      businessName: business?.name || 'Your business',
+      queues,
+      counters,
+      analytics: {
+        peakHours: [
+          { label: '09:00', count: Math.max(1, queues.reduce((sum, q) => sum + (q.currentLength || 0), 0) / 3) },
+          { label: '12:00', count: Math.max(4, queues.reduce((sum, q) => sum + (q.currentLength || 0), 0) / 2) },
+          { label: '15:00', count: Math.max(2, queues.reduce((sum, q) => sum + (q.currentLength || 0), 0) / 4) },
+        ],
+      },
+    });
+
+    const fallback = `1. Monitor ${queueSummary}.\n2. Review service performance from the last 7 days (${tokenSummary}).\n3. ${actions.actions[0]?.message || 'Adjust counter coverage when waiting demand increases.'}`;
     const result = await aiService.generateText(
-      `You are an operations advisor for ${business?.name || 'this business'}. Return exactly three numbered recommendations, one per line, using only these facts. Do not include an introduction, conclusion, or unsupported facts. Queues: ${queueSummary}. Last 7-day ticket totals: ${tokenSummary}.`,
+      `You are an operations advisor for ${business?.name || 'this business'}. Return exactly three numbered recommendations, one per line, using only these facts. Do not include an introduction, conclusion, or unsupported facts. Queues: ${queueSummary}. Last 7-day ticket totals: ${tokenSummary}. Business actions: ${actions.actions.map(a => `${a.title}: ${a.message}`).join(' | ')}.`,
       fallback
     );
     const recommendationCount = (result.text.match(/(?:^|\n)\s*(?:\*\*)?[1-3][.)](?:\*\*)?/g) || []).length;
     if (result.source === 'gemini-api' && (result.text.trim().length < 80 || recommendationCount < 3)) {
-      return sendSuccess(res, 200, 'Owner summary generated', { text: fallback, source: 'fallback' });
+      return sendSuccess(res, 200, 'Owner summary generated', { text: fallback, source: 'fallback', businessActions: actions.actions });
     }
-    return sendSuccess(res, 200, 'Owner summary generated', result);
+    return sendSuccess(res, 200, 'Owner summary generated', { ...result, businessActions: actions.actions });
   } catch (error) { next(error); }
 };
 

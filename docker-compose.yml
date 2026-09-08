@@ -29,6 +29,22 @@ services:
     restart: unless-stopped
     command: redis-server --appendonly yes
 
+  # Python ML service with the trained queue wait-time model
+  ai-service:
+    build:
+      context: .
+      dockerfile: python-ai-service/Dockerfile
+    container_name: booking_ai_service
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.0-flash}
+    networks:
+      - booking_network
+    restart: unless-stopped
+
   # Node.js API Service (with Gemini AI Integration)
   api-service:
     build:
@@ -44,9 +60,11 @@ services:
       - REDIS_URI=redis://redis:6379/0
       - JWT_SECRET=your-jwt-secret-change-in-production
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - PYTHON_AI_SERVICE_URL=http://ai-service:8000
     depends_on:
       - mongodb
       - redis
+      - ai-service
     networks:
       - booking_network
     restart: unless-stopped

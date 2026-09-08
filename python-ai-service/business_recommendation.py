@@ -17,6 +17,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 import urllib.request
 import urllib.error
+from queue_ml_model import model_status, predict_wait_time as predict_wait_time_model
 
 logger = logging.getLogger(__name__)
 
@@ -88,6 +89,40 @@ class RecommendationResponse(BaseModel):
     reasoning:       str
     source:          str
     model:           Optional[str] = None
+
+
+class WaitTimeRequest(BaseModel):
+    queueId: Optional[str] = None
+    tokenId: Optional[str] = None
+    category: Optional[str] = "General"
+    priority: Optional[str] = "normal"
+    activeCounters: int = 1
+    peopleAhead: int = 0
+
+
+class WaitTimeResponse(BaseModel):
+    estimated_wait_minutes: float
+    confidence_score: float
+    source: str
+    model: Optional[str] = "ml-model"
+
+
+def predict_wait_time_inline(category: Optional[str], priority: Optional[str], active_counters: int, people_ahead: int) -> float:
+    """Deterministic queue wait approximation for the AI microservice."""
+    category_map = {
+        "General": 5,
+        "Support": 8,
+        "Billing": 6,
+        "Technical": 10,
+        "Emergency": 3,
+        "VIP": 4,
+    }
+    priority_factor = {"vip": 0.6, "emergency": 0.3, "normal": 1.0}.get((priority or "normal").lower(), 1.0)
+    base_time = category_map.get(category or "General", 5)
+    counters = max(int(active_counters or 1), 1)
+    queue_pressure = max(int(people_ahead or 0), 0)
+    estimated = (base_time * (queue_pressure + 1) * priority_factor) / counters
+    return max(0.5, round(float(estimated), 1))
 
 
 def extract_gemini_text(result_data: dict) -> str:
@@ -255,6 +290,54 @@ def call_gemini_api(summaries: str, req: RecommendationRequest, model: str) -> d
         cleaned = cleaned.lstrip("json").strip()
 
     return json.loads(cleaned)
+
+
+@router.post("/predict-wait-time", response_model=WaitTimeResponse)
+async def predict_wait_time(req: WaitTimeRequest):
+    """Return a queue wait estimate from the AI service. This keeps the contract expected by the Node backend."""
+    category_map = {
+        "General": 5,
+        "Support": 8,
+        "Billing": 6,
+        "Technical": 10,
+        "Emergency": 3,
+        "VIP": 4,
+    }
+    queue_length = max(req.peopleAhead + 1, 1)
+    effective_position = max(req.peopleAhead + 1, 1)
+    if (req.priority or "normal").lower() == "vip":
+        effective_position = max(round(effective_position * 0.6), 1)
+    elif (req.priority or "normal").lower() == "emergency":
+        effective_position = 1
+
+    now = __import__("datetime").datetime.now()
+    minutes_since_midnight = now.hour * 60 + now.minute
+    historical_service_avg = category_map.get(req.category or "General", 5)
+    queue_pressure = queue_length / max(req.activeCounters or 1, 1)
+    estimated = predict_wait_time_model(
+        queue_position=effective_position,
+        queue_length=queue_length,
+        historical_service_avg=historical_service_avg,
+        minutes_since_midnight=minutes_since_midnight,
+        queue_pressure=queue_pressure,
+    )
+    source = "trained-ml-model"
+    model = "smart_queue_model_v2"
+    if estimated is None:
+        estimated = predict_wait_time_inline(
+            req.category, req.priority, req.activeCounters, req.peopleAhead
+        )
+        source = "rule-based-fallback"
+        model = "inline-queue-formula"
+    confidence = 0.82 if (req.peopleAhead or 0) <= 5 else 0.74
+    if (req.priority or "normal").lower() in {"vip", "emergency"}:
+        confidence = min(0.9, confidence + 0.08)
+    return WaitTimeResponse(
+        estimated_wait_minutes=estimated,
+        confidence_score=confidence,
+        source=source,
+        model=model,
+    )
 
 
 @router.post("/recommend-business", response_model=RecommendationResponse)

@@ -20,33 +20,39 @@ let retryCount = 0;
  * Retries up to MAX_RETRIES times on failure.
  */
 const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URI, {
+  const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
 
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
+  if (!mongoUri) {
+    throw new Error('MongoDB connection string is missing. Set MONGO_URI or MONGODB_URI.');
+  }
 
-    retryCount = 0; // Reset on success
-    logger.info(`✅ MongoDB connected: ${conn.connection.host}`);
-  } catch (error) {
-    retryCount++;
-    logger.error(`❌ MongoDB connection error (attempt ${retryCount}): ${error.message}`);
+  while (retryCount < MAX_RETRIES) {
+    try {
+      const conn = await mongoose.connect(mongoUri, {
+        serverSelectionTimeoutMS: 5000,
+        socketTimeoutMS: 45000,
+      });
 
-    if (retryCount < MAX_RETRIES) {
+      retryCount = 0;
+      logger.info(`✅ MongoDB connected: ${conn.connection.host}`);
+      return conn;
+    } catch (error) {
+      retryCount++;
+      logger.error(`❌ MongoDB connection error (attempt ${retryCount}): ${error.message}`);
+
+      if (retryCount >= MAX_RETRIES) {
+        throw new Error('Unable to connect to MongoDB after multiple attempts.', { cause: error });
+      }
+
       logger.info(`⏳ Retrying in ${RETRY_DELAY_MS / 1000}s...`);
-      setTimeout(connectDB, RETRY_DELAY_MS);
-    } else {
-      logger.error('💥 Max retries reached. Exiting process.');
-      process.exit(1);
+      await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY_MS));
     }
   }
 };
 
 // ── Connection event listeners ──────────────────
 mongoose.connection.on('disconnected', () => {
-  logger.warn('⚠️  MongoDB disconnected. Attempting reconnect...');
-  connectDB();
+  logger.warn('⚠️  MongoDB disconnected. Mongoose will attempt to reconnect.');
 });
 
 mongoose.connection.on('error', (err) => {

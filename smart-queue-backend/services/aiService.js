@@ -502,24 +502,153 @@ class AIService {
   }
 
   /**
-   * Predict wait time for a queue/token (Local dynamic calculation)
+   * Generate concrete business operations actions from queue health data.
    */
-  async predictWaitTime(queueId, tokenId, category, priority, activeCounters = 1) {
+  generateBusinessActions({ businessName = 'this business', queues = [], counters = [], analytics = {} } = {}) {
+    const actions = [];
+    const activeQueues = queues.filter(q => q.status === 'active');
+    const activeCounters = counters.filter(c => c.status === 'active' || c.status === 'busy');
+    const peakHours = Array.isArray(analytics.peakHours) ? analytics.peakHours : [];
+    const busiestPeak = peakHours.reduce((best, hour) => (!best || (hour.count ?? 0) > (best.count ?? 0) ? hour : best), null);
+
+    const overcrowded = activeQueues.filter(q => (q.currentLength || 0) >= 10 || (q.estimatedServiceTime || 5) >= 8);
+    if (overcrowded.length) {
+      actions.push({
+        category: 'alerting',
+        title: 'Queue overload alert',
+        severity: 'high',
+        message: `${businessName} has ${overcrowded.map(q => `${q.serviceName} (${q.currentLength || 0} waiting)`).join(', ')} building up. Open extra coverage or reduce the service bottleneck.`,
+      });
+    } else {
+      actions.push({
+        category: 'alerting',
+        title: 'Queue is stable',
+        severity: 'low',
+        message: `${businessName} is operating within a healthy load. Keep monitoring the next 30 minutes for demand spikes.`,
+      });
+    }
+
+    if (activeCounters.length > 0) {
+      const averageLoad = activeQueues.reduce((sum, q) => sum + (q.currentLength || 0), 0) / Math.max(activeCounters.length, 1);
+      const staffingLevel = Math.max(1, Math.ceil(averageLoad / 6));
+      actions.push({
+        category: 'staffing',
+        title: 'Staffing recommendation',
+        severity: staffingLevel > 1 ? 'medium' : 'low',
+        message: `Recommended active coverage: ${staffingLevel} service window(s) beyond the current setup during peak demand.`,
+      });
+    }
+
+    if (activeQueues.length > 1) {
+      const busiestQueue = activeQueues.reduce((best, q) => {
+        const score = (q.currentLength || 0) + (q.estimatedServiceTime || 5);
+        return !best || score > best.score ? { queue: q, score } : best;
+      }, null);
+
+      if (busiestQueue) {
+        actions.push({
+          category: 'queue-balance',
+          title: 'Rebalance queue load',
+          severity: 'medium',
+          message: `Shift overflow from ${busiestQueue.queue.serviceName} to the next available counter or cross-train staff to reduce congestion.`,
+        });
+      }
+    }
+
+    const vipQueue = activeQueues.find(q => (q.category || '').toLowerCase() === 'vip');
+    if (vipQueue) {
+      actions.push({
+        category: 'vip-priority',
+        title: 'VIP prioritization',
+        severity: 'medium',
+        message: `Keep a dedicated counter for ${vipQueue.serviceName} or reserve one fast-lane slot to protect VIP service quality.`,
+      });
+    }
+
+    if (busiestPeak) {
+      actions.push({
+        category: 'visit-timing',
+        title: 'Best time to visit',
+        severity: 'low',
+        message: `Demand peaks around ${busiestPeak.label}. Invite customers to arrive before that hour or use a fast-track queue during the rush period.`,
+      });
+    }
+
+    if (actions.length < 4) {
+      actions.push({
+        category: 'visit-timing',
+        title: 'Customer communication',
+        severity: 'low',
+        message: 'Send a short wait-time update to customers before busy periods to reduce anxiety and improve satisfaction.',
+      });
+    }
+
+    return {
+      actions: actions.slice(0, 6),
+      summary: `AI operations review for ${businessName}: ${actions.length} recommended business actions identified across alerting, staffing, queue balancing, VIP prioritization, and visit timing.`,
+    };
+  }
+
+  /**
+   * Predict wait time for a queue/token using the Python AI microservice when configured.
+   * Falls back to a deterministic local model when the microservice is unavailable.
+   */
+  async predictWaitTime(queueId, tokenId, category, priority, activeCounters = 1, peopleAhead = 0) {
+    const pythonBaseUrl = PYTHON_AI_SERVICE_URL && PYTHON_AI_SERVICE_URL.trim();
+
+    if (pythonBaseUrl) {
+      try {
+        const payload = {
+          queueId,
+          tokenId,
+          category,
+          priority,
+          activeCounters: Math.max(activeCounters || 1, 1),
+          peopleAhead: Math.max(Number(peopleAhead) || 0, 0),
+        };
+
+        const response = await axios.post(
+          `${pythonBaseUrl.replace(/\/$/, '')}/ai/predict-wait-time`,
+          payload,
+          { timeout: 10000 }
+        );
+
+        const predicted = response.data || {};
+        if (predicted && predicted.estimated_wait_minutes !== undefined) {
+          return {
+            estimated_wait_minutes: Number(predicted.estimated_wait_minutes),
+            confidence_score: Number(predicted.confidence_score ?? 0.8),
+            source: predicted.source || 'ml-model',
+            model: predicted.model || null,
+          };
+        }
+      } catch (error) {
+        logger.warn('Python AI wait-time service failed, falling back to local prediction', {
+          error: error.message,
+          queueId,
+          category,
+          priority,
+        });
+      }
+    }
+
     const baseTimes = {
       'General':   5,
       'Support':   8,
       'Billing':   6,
       'Technical': 10,
       'Emergency': 3,
-      'VIP':       4
+      'VIP':       4,
     };
 
     const priorityFactor = priority === 'vip' ? 0.6 : priority === 'emergency' ? 0.3 : 1.0;
     const baseTime = baseTimes[category] || 5;
-    const counters = Math.max(activeCounters, 1);
+    const counters = Math.max(activeCounters || 1, 1);
+    const effectiveAhead = Math.max(Number(peopleAhead) || 0, 0);
+    const estimated = Math.max(1, Math.round(((baseTime * (effectiveAhead + 1) * priorityFactor) / counters) * 10) / 10);
 
     return {
-      estimated_wait_minutes: Math.max(1, Math.round((baseTime * priorityFactor) / counters)),
+      estimated_wait_minutes: estimated,
       confidence_score: 0.85,
       source: 'rule-based'
     };
