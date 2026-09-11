@@ -13831,3 +13831,89 @@
 ╚══════════════════════════════════════════╝
     
 2026-09-08 13:13:51 [debug]: Socket connected: v-mwSKhsXO4LfmmQAAAB (user: 6a7c2b7cd4fce92f9a22f355)
+2026-09-09 11:04:54 [info]: ✅ Socket.io initialized
+2026-09-09 11:04:54 [info]: ✅ MongoDB connected: localhost
+2026-09-09 11:04:54 [info]: 
+╔══════════════════════════════════════════╗
+║   Naubex API — Server Started            ║
+║   Port    : 5000                           ║
+║   Mode    : development                  ║
+║   WS      : Socket.io enabled            ║
+╚══════════════════════════════════════════╝
+    
+2026-09-09 11:05:21 [http]: ::1 - - [09/Sep/2026:06:05:21 +0000] "GET /health HTTP/1.1" 200 127 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:05:22 [http]: ::1 - - [09/Sep/2026:06:05:22 +0000] "GET /api/auth/me HTTP/1.1" 200 365 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:05:22 [http]: ::1 - - [09/Sep/2026:06:05:22 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:05:22 [debug]: Socket connected: 3PtaQdDiiydBt9G-AAAB (user: 6a7c2b7cd4fce92f9a22f355)
+2026-09-09 11:06:06 [http]: ::1 - - [09/Sep/2026:06:06:06 +0000] "GET /api/business/all? HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:06 [http]: ::1 - - [09/Sep/2026:06:06:06 +0000] "GET /api/business/all? HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:06 [http]: ::1 - - [09/Sep/2026:06:06:06 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20417 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:06 [http]: ::1 - - [09/Sep/2026:06:06:06 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20417 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:15 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:15 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:15 [http]: ::1 - - [09/Sep/2026:06:06:15 +0000] "GET /api/queues/list?slug=my-shop-e HTTP/1.1" 200 1598 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:15 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:15 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:15 [http]: ::1 - - [09/Sep/2026:06:06:15 +0000] "GET /api/queues/list?slug=my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:25 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:25 [info]: Token booked: S-015 for qasim1@gmail.com in queue Express Counter
+2026-09-09 11:06:25 [http]: ::1 - - [09/Sep/2026:06:06:25 +0000] "POST /api/token/book HTTP/1.1" 201 1429 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:26 [http]: ::1 - - [09/Sep/2026:06:06:26 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:32 [http]: ::1 - - [09/Sep/2026:06:06:32 +0000] "GET /api/business/slug/my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:32 [http]: ::1 - - [09/Sep/2026:06:06:32 +0000] "GET /api/business/slug/my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:32 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:32 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:32 [http]: ::1 - - [09/Sep/2026:06:06:32 +0000] "GET /api/queues/list?slug=my-shop-e HTTP/1.1" 200 1598 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:32 [debug]: Socket 3PtaQdDiiydBt9G-AAAB joined queue room: 6a8c58ed3245804dd9fbacef
+2026-09-09 11:06:32 [error]: Error sending queue snapshot: Queue is not defined
+2026-09-09 11:06:32 [debug]: Socket 3PtaQdDiiydBt9G-AAAB joined queue room: 6a8c58ed3245804dd9fbaced
+2026-09-09 11:06:32 [error]: Error sending queue snapshot: Queue is not defined
+2026-09-09 11:06:32 [http]: ::1 - - [09/Sep/2026:06:06:32 +0000] "GET /api/business/slug/my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:33 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:33 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:33 [http]: ::1 - - [09/Sep/2026:06:06:33 +0000] "GET /api/queues/list?slug=my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:33 [debug]: Socket 3PtaQdDiiydBt9G-AAAB joined queue room: 6a8c58ed3245804dd9fbacef
+2026-09-09 11:06:33 [error]: Error sending queue snapshot: Queue is not defined
+2026-09-09 11:06:33 [debug]: Socket 3PtaQdDiiydBt9G-AAAB joined queue room: 6a8c58ed3245804dd9fbaced
+2026-09-09 11:06:33 [error]: Error sending queue snapshot: Queue is not defined
+2026-09-09 11:06:33 [http]: ::1 - - [09/Sep/2026:06:06:33 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:33 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:33 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 11:06:33 [http]: ::1 - - [09/Sep/2026:06:06:33 +0000] "GET /api/queues/list?slug=my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:33 [debug]: Socket 3PtaQdDiiydBt9G-AAAB joined queue room: 6a8c58ed3245804dd9fbacef
+2026-09-09 11:06:33 [error]: Error sending queue snapshot: Queue is not defined
+2026-09-09 11:06:33 [debug]: Socket 3PtaQdDiiydBt9G-AAAB joined queue room: 6a8c58ed3245804dd9fbaced
+2026-09-09 11:06:33 [error]: Error sending queue snapshot: Queue is not defined
+2026-09-09 11:06:33 [http]: ::1 - - [09/Sep/2026:06:06:33 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:33 [http]: ::1 - - [09/Sep/2026:06:06:33 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:41 [http]: ::1 - - [09/Sep/2026:06:06:41 +0000] "GET /api/business/all? HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:41 [http]: ::1 - - [09/Sep/2026:06:06:41 +0000] "GET /api/business/all? HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:41 [http]: ::1 - - [09/Sep/2026:06:06:41 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:06:42 [http]: ::1 - - [09/Sep/2026:06:06:42 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 11:29:14 [debug]: Socket disconnected: 3PtaQdDiiydBt9G-AAAB (client namespace disconnect)
+2026-09-09 12:00:10 [info]: User logged in: qasim1@gmail.com
+2026-09-09 12:00:10 [http]: ::1 - - [09/Sep/2026:07:00:10 +0000] "POST /api/auth/login HTTP/1.1" 200 541 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:00:11 [debug]: Socket connected: oVKNNKhpTDa_4CRxAAAD (user: 6a7c2b7cd4fce92f9a22f355)
+2026-09-09 12:00:11 [http]: ::1 - - [09/Sep/2026:07:00:11 +0000] "GET /api/business/all? HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:00:11 [http]: ::1 - - [09/Sep/2026:07:00:11 +0000] "GET /api/business/all? HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:00:11 [http]: ::1 - - [09/Sep/2026:07:00:11 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:00:11 [http]: ::1 - - [09/Sep/2026:07:00:11 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:00:42 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 12:00:42 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 12:00:42 [http]: ::1 - - [09/Sep/2026:07:00:42 +0000] "GET /api/queues/list?slug=my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:00:42 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 12:00:42 [warn]: Python AI wait-time service failed, falling back to local prediction
+2026-09-09 12:00:42 [http]: ::1 - - [09/Sep/2026:07:00:42 +0000] "GET /api/queues/list?slug=my-shop-e HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:01:30 [warn]: Python AI service call failed, attempting Gemini/fallback
+2026-09-09 12:01:32 [warn]: Python AI service call failed, attempting Gemini/fallback
+2026-09-09 12:01:41 [warn]: Python AI service call failed, attempting Gemini/fallback
+2026-09-09 12:01:50 [warn]: Gemini API call failed, falling back to scoring algorithm
+2026-09-09 12:01:50 [http]: ::1 - - [09/Sep/2026:07:01:50 +0000] "POST /api/ai/recommendations HTTP/1.1" 200 1238 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:01:52 [warn]: Gemini API call failed, falling back to scoring algorithm
+2026-09-09 12:01:52 [http]: ::1 - - [09/Sep/2026:07:01:52 +0000] "POST /api/ai/recommendations HTTP/1.1" 200 1238 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:02:01 [warn]: Gemini API call failed, falling back to scoring algorithm
+2026-09-09 12:02:01 [http]: ::1 - - [09/Sep/2026:07:02:01 +0000] "POST /api/ai/recommendations HTTP/1.1" 200 1241 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:03:56 [http]: ::1 - - [09/Sep/2026:07:03:56 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:04:01 [http]: ::1 - - [09/Sep/2026:07:04:01 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:05:10 [http]: ::1 - - [09/Sep/2026:07:05:10 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+2026-09-09 12:05:37 [http]: ::1 - - [09/Sep/2026:07:05:37 +0000] "GET /api/token/user/6a7c2b7cd4fce92f9a22f355 HTTP/1.1" 200 20324 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
